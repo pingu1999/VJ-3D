@@ -7,6 +7,10 @@ TagManager:
   - MainMenu
   - OverMenu
   - Objects
+  - SartenArroz
+  - Carne
+  - CarneCortada
+  - Sarten
   layers:
   - Default
   - TransparentFX

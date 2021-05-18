@@ -25,7 +25,7 @@ public class ColocacionMesas : MonoBehaviour
             // aux = false;
             pos = this.transform.position;
             pos.y = 23.5f;
-            pos.x -= 2;
+            pos.x -= 0.25f;
             Quaternion rot = new Quaternion(0, 0, 0, 0);
             ObjectIwantToPickUp.GetComponent<Rigidbody>().isKinematic = true;   //makes the rigidbody not be acted upon by forces
             ObjectIwantToPickUp.transform.position = pos; // sets the position of the object to your hand position
