@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
@@ -34,6 +35,9 @@ public class Timer : MonoBehaviour
         else if (tiempo <= 0) {
             new WaitForSeconds(2);
             FindObjectOfType<GameManager>().EndGame();
+            //MainMenu menu.desactivate();
+            //OverMenu over.activate();
+            SceneManager.LoadScene(0);
 
         }
         timer.text = tiempoText;

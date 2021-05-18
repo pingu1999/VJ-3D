@@ -98,7 +98,7 @@ public class PlayerPick : MonoBehaviour
     private void OnTriggerEnter(Collider other) // to see when the player enters the collider
     {
         
-        if (other.gameObject.tag == "Objects") //on the object you want to pick up set the tag to be anything, in this case "object"
+         if (other.gameObject.tag != "Untagged") //on the object you want to pick up set the tag to be anything, in this case "object"
         {
             canpickup = true;  //set the pick up bool to true
             ObjectIwantToPickUp = other.gameObject; //set the gameobject you collided with to one you can reference
@@ -109,90 +109,4 @@ public class PlayerPick : MonoBehaviour
         canpickup = false; //when you leave the collider set the canpickup bool to false
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /*public GameObject item; 
-    //public GameObject tempParent; 
-    public Transform guide; 
-
-    bool carrying;
-    public float range = 12;
-
-    private Animator anim;
-    void Start()
-    {
-        item.GetComponent<Rigidbody>().useGravity = true;
-        anim = GetComponent<Animator>();
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        if (carrying == false)
-        {
-            if (Input.GetKeyDown(KeyCode.E) && (guide.transform.position - transform.position).sqrMagnitude < range / range)
-            {
-                anim.SetBool("recoger", !anim.GetBool("recoger"));
-                pickup();
-                carrying = true;
-            }
-        }
-        else if (carrying == true)
-        {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                drop();
-                carrying = false;
-            }
-        }
-    }
-    void pickup()
-    {
-        Vector3 pos = guide.transform.position;
-        pos.z = pos.z + 10.0f;
-        pos.y = pos.y + 15f;
-        Debug.Log("Pick");
-        item.GetComponent<Rigidbody>().useGravity = false;
-        item.GetComponent<Rigidbody>().isKinematic = true;
-        Debug.Log(item.transform.name);
-        item.transform.position = pos;
-        item.transform.rotation = guide.transform.rotation;
-        //item.transform.parent = tempParent.transform;
-    }
-    void drop()
-    {
-        Debug.Log("Drop!");
-        item.GetComponent<Rigidbody>().useGravity = true;
-        item.GetComponent<Rigidbody>().isKinematic = false;
-        item.transform.parent = null;
-        item.transform.position = guide.transform.position;
-    }*/
 }
