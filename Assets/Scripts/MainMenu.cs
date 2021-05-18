@@ -4,9 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
+    public OverMenu overmenu;
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+  
+        this.gameObject.SetActive(false);
+        Debug.Log(this.gameObject.name);
+        overmenu.activate();
+        
     }
 
     public void QuitGame ()
@@ -14,4 +19,6 @@ public class MainMenu : MonoBehaviour
         Debug.Log("QUIT!");
         Application.Quit();
     }
+
+  
 }

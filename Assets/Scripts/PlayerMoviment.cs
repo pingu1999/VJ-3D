@@ -9,33 +9,38 @@ public class PlayerMoviment : MonoBehaviour
     [SerializeField] private float moveSpeed;
     [SerializeField] private float walkSpeed;
 
+    static public string dir;
+    public Canvas layout;
     private Vector3 moveDirection;
     private Vector3 velocity;
+    
 
-    [SerializeField] private bool isGrounded;
-    [SerializeField] private bool groundCheckDistance;
-    [SerializeField] private LayerMask groundMask;
-    [SerializeField] private LayerMask gravity;
+    //[SerializeField] private bool isGrounded;
+    //[SerializeField] private bool groundCheckDistance;
+    //[SerializeField] private LayerMask groundMask;
+    //[SerializeField] private LayerMask gravity;
 
     //references
     private CharacterController controller;
-    private Animator anim;
+    private static Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
+       
+    }
+    public static string Direccio()
+    {
+        return dir;
     }
 
     // Update is called once per frame
     void Update()
     {
+       
         Move();
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Recoger();
-        }
     }
 
     private void Move()
@@ -54,6 +59,7 @@ public class PlayerMoviment : MonoBehaviour
         
         else if (moveDirection != Vector3.zero)
         {
+            layout.gameObject.SetActive(true);
             walk();
         }
 
@@ -74,11 +80,14 @@ public class PlayerMoviment : MonoBehaviour
         anim.SetFloat("Speed", 0.5f, 0.1f, Time.deltaTime);
 
     }
-    private void Recoger()
+    public static void Recoger()
     {
 
         anim.SetBool("recoger",!anim.GetBool("recoger"));
+       
+        
     }
+
 
 
     private void gir_personatge(float moveZ, float moveX)
@@ -95,21 +104,25 @@ public class PlayerMoviment : MonoBehaviour
         {
             //delante
             transform.rotation = Quaternion.Euler(0, 0, 0);
+            dir = "north";
         }
         else if (moveZ < 0 && moveX == 0)
         {
             //detras
             transform.rotation = Quaternion.Euler(0, 180, 0);
+            dir = "south";
         }
         else if (moveZ == 0 && moveX > 0)
         {
             //derecha
             transform.rotation = Quaternion.Euler(0, 90, 0);
+            dir = "est";
         }
         else if (moveZ == 0 && moveX < 0)
         {
             //izquierda
             transform.rotation = Quaternion.Euler(0, -90, 0);
+            dir = "west";
         }
 
 
@@ -117,18 +130,23 @@ public class PlayerMoviment : MonoBehaviour
         else if (moveZ > 0 && moveX > 0)
         {
             transform.rotation = Quaternion.Euler(0, 45, 0);
+            dir = "north-west";
         }
         else if (moveZ > 0 && moveX < 0)
         {
             transform.rotation = Quaternion.Euler(0, -45, 0);
+            dir = "north-est";
         }
         else if (moveZ < 0 && moveX > 0)
         {
             transform.rotation = Quaternion.Euler(0, 135, 0);
+            dir = "south-west";
         }
         else
         {
             transform.rotation = Quaternion.Euler(0, 225, 0);
+            dir = "south-est";
         }
+       //Debug.Log(dir);
     }
 }
