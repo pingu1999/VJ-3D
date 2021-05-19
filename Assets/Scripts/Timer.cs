@@ -26,17 +26,21 @@ public class Timer : MonoBehaviour
         if (count > 10)
         {
             //next level o Wininng;
+            if (SceneManager.GetSceneByName("5_nivell") != null)
+            {
+                SelectorMenu.setmenu(2);
+                SceneManager.LoadScene(0);
+            }
         }
         else if (tiempo > 0)
         {
+
             tiempo -= 1 * Time.deltaTime;
             tiempoText = "" + tiempo.ToString("f0");
         }
         else if (tiempo <= 0) {
-            new WaitForSeconds(2);
-            FindObjectOfType<GameManager>().EndGame();
-            //MainMenu menu.desactivate();
-            //OverMenu over.activate();
+            new WaitForSeconds(3);
+            SelectorMenu.setmenu(1);
             SceneManager.LoadScene(0);
 
         }

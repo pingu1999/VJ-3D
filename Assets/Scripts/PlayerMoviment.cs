@@ -42,7 +42,6 @@ public class PlayerMoviment : MonoBehaviour
        
         Move();
     }
-
     private void Move()
     {
         float moveZ = Input.GetAxis("Vertical");

@@ -1,0 +1,59 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CombinacionesSarten : MonoBehaviour
+{
+
+    public GameObject myHands; //reference to your hands/the position where you want your object to go
+    bool fusionarcarne_sarten; //a bool to see if you fusionate them
+    GameObject Object; // the gameobject onwhich you collided with
+    private Vector3 pos;
+    [SerializeField]
+    private GameObject prefabSartenCarne;
+    private GameObject _sartencarne;
+
+
+    void Start()
+    {
+        
+    }
+
+    void Update()
+    {
+        if (fusionarcarne_sarten)
+        {
+            fusionarcarne_sarten = false;
+            pos = gameObject.transform.position;
+            //new WaitForSeconds(0.5f);
+            Destroy(Object);
+            Destroy(gameObject);
+            //Object.transform.parent = null;
+            _sartencarne = Instantiate(prefabSartenCarne) as GameObject;
+            _sartencarne.transform.position = pos;
+            
+
+
+        }
+        
+    }
+
+    private void OnTriggerEnter(Collider other) // to see when the player enters the collider
+    {
+        Debug.Log(other.gameObject.name);
+        Debug.Log(other.gameObject.transform.parent);
+        
+
+        if (other.gameObject.tag == "Carne" && other.transform.parent != myHands.transform)
+        {
+            //Debug.Log("Carne");
+            Debug.Log(other.gameObject.transform.parent);
+            Debug.Log("Combinacion");
+            fusionarcarne_sarten = true;
+            Object = other.gameObject; //set the gameobject you collided with to one you can reference
+          
+        } 
+            
+    }
+   
+}

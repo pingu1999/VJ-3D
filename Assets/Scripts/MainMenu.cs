@@ -7,7 +7,6 @@ public class MainMenu : MonoBehaviour
     public Canvas overmenu;
     public void PlayGame()
     {
-        Debug.Log(this.gameObject.name);
         SceneManager.LoadScene(1);
 
     }
