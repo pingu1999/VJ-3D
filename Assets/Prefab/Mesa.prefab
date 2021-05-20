@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4349710811199450141}
   - component: {fileID: 4349710811199450140}
   - component: {fileID: 4349710811199450143}
+  - component: {fileID: 6538712206970927119}
   m_Layer: 0
   m_Name: Mesa
   m_TagString: Untagged
@@ -73,6 +74,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 8418020490219754742, guid: ba017e4e363082042b62eab0247aa88a, type: 3}
+--- !u!114 &6538712206970927119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4349710811199450142}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &4349710811288847362
 GameObject:
   m_ObjectHideFlags: 0

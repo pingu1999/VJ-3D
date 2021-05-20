@@ -6,7 +6,7 @@ public class MesaCortar : MonoBehaviour
 {
     GameObject myHands; //reference to your hands/the position where you want your object to go
     GameObject Hand;
-    bool posicionar, bool_cuchillo, ready; //a bool to see if you can or cant posisionate
+    bool posicionar, ready; //a bool to see if you can or cant posisionate
     GameObject ObjectIwantToPickUp; // the gameobject onwhich you collided with
     private Vector3 pos;
     public GameObject cuchillo;
@@ -20,7 +20,6 @@ public class MesaCortar : MonoBehaviour
     void Start()
     {
         posicionar = false;
-        bool_cuchillo = false;
         ready = true;
         myHands = player.transform.Find("mixamorig:Hips").Find("mixamorig:Spine").gameObject;
         Hand = player.transform.Find("mixamorig:Hips").Find("mixamorig:Spine").Find("mixamorig:Spine1").Find("mixamorig:Spine2").Find("mixamorig:RightShoulder").Find("mixamorig:RightArm").Find("mixamorig:RightForeArm").Find("mixamorig:RightHand").gameObject;
@@ -59,7 +58,6 @@ public class MesaCortar : MonoBehaviour
         cuchillo.transform.rotation = rot;
         cuchillo.transform.parent = null;
 
-        bool_cuchillo = false;
         Debug.Log("3 segons despres");
         ready = true;
         ObjectIwantToPickUp = null;

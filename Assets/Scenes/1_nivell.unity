@@ -771,7 +771,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &705507994
 Light:
   m_ObjectHideFlags: 0
@@ -1284,6 +1284,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8418020490219754742, guid: ba017e4e363082042b62eab0247aa88a, type: 3}
   m_PrefabInstance: {fileID: 8652462549911271127}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1238718516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238718508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd17d85796638d84bb413664ff494c8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1242657619
 GameObject:
   m_ObjectHideFlags: 0
@@ -2320,6 +2332,14 @@ PrefabInstance:
     - target: {fileID: 8652462550432396237, guid: ba017e4e363082042b62eab0247aa88a, type: 3}
       propertyPath: m_Size.y
       value: 0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 8652462550432396237, guid: ba017e4e363082042b62eab0247aa88a, type: 3}
+      propertyPath: m_Size.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8652462550432396237, guid: ba017e4e363082042b62eab0247aa88a, type: 3}
+      propertyPath: m_Center.z
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 9194381925072129612, guid: ba017e4e363082042b62eab0247aa88a, type: 3}
       propertyPath: m_RootOrder

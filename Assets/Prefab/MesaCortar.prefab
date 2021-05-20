@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 563026123816667186}
   - component: {fileID: 563026123816667187}
   - component: {fileID: 1679023717979232970}
+  - component: {fileID: -1773710491829070533}
   m_Layer: 0
   m_Name: MesaCortar
   m_TagString: Untagged
@@ -74,6 +75,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cuchillo: {fileID: 6041788472216280500, guid: 84ee0ec9028d9104cb660ded25434356, type: 3}
   player: {fileID: 8418020490219754742, guid: ba017e4e363082042b62eab0247aa88a, type: 3}
+  prefabCarneCortada: {fileID: 0}
+--- !u!114 &-1773710491829070533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 797467638094994763}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &8546960691958310290
 GameObject:
   m_ObjectHideFlags: 0
