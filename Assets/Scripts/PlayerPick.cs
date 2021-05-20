@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class PlayerPick : MonoBehaviour
 {
-    public GameObject myHands; //reference to your hands/the position where you want your object to go
+    GameObject myHands; //reference to your hands/the position where you want your object to go
     bool canpickup; //a bool to see if you can or cant pick up the item
     GameObject ObjectIwantToPickUp; // the gameobject onwhich you collided with
-    bool hasItem; // a bool to see if you have an item in your hand
-    // Start is called before the first frame update
+    bool hasItem; 
     private Vector3 pos;
 
     void Start()
     {
+        myHands = transform.Find("mixamorig:Hips").Find("mixamorig:Spine").gameObject;
         canpickup = false;    //setting both to false
         hasItem = false;
     }
@@ -71,6 +71,7 @@ public class PlayerPick : MonoBehaviour
         if (canpickup == true && Input.GetKeyDown(KeyCode.E) && hasItem == false && ObjectIwantToPickUp != null)  // can be e or any key
         {
             PlayerMoviment.Recoger();
+            Debug.Log("recoger");
             pos = myHands.transform.position;
             orientacio();
             ObjectIwantToPickUp.GetComponent<Rigidbody>().isKinematic = true;   //makes the rigidbody not be acted upon by forces
@@ -90,17 +91,16 @@ public class PlayerPick : MonoBehaviour
             pos.y += 0.5f;
             ObjectIwantToPickUp.transform.position = pos;
             hasItem = false;
-            Debug.Log("soltar");
-            Debug.Log(ObjectIwantToPickUp.gameObject.transform.parent);
         }
     }
     private void OnTriggerEnter(Collider other) // to see when the player enters the collider
     {
         
-         if (other.gameObject.tag != "Untagged" && !hasItem) //on the object you want to pick up set the tag to be anything, in this case "object"
+         if (other.gameObject.tag != "Untagged" && !hasItem && other.gameObject.tag != "Cuchillo" && other.gameObject.tag != "Player") //on the object you want to pick up set the tag to be anything, in this case "object"
         {
             canpickup = true;  //set the pick up bool to true
             ObjectIwantToPickUp = other.gameObject; //set the gameobject you collided with to one you can reference
+           // Debug.Log(other.name + "trigger");
         }
     }
     private void OnTriggerExit(Collider other)

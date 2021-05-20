@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMoviment : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class PlayerMoviment : MonoBehaviour
     public Canvas layout;
     private Vector3 moveDirection;
     private Vector3 velocity;
+    static bool block;
     
 
     //[SerializeField] private bool isGrounded;
@@ -29,13 +31,19 @@ public class PlayerMoviment : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
-       
+        block = false;
+        anim.SetBool("recoger", false);
+
     }
     public static string Direccio()
     {
         return dir;
     }
 
+    static public void setblock (bool b)
+    {
+        block = b;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -44,13 +52,16 @@ public class PlayerMoviment : MonoBehaviour
     }
     private void Move()
     {
+        
         float moveZ = Input.GetAxis("Vertical");
         float moveX = Input.GetAxis("Horizontal");
 
-        gir_personatge(moveZ, moveX);
-
-        moveDirection = new Vector3(moveX, 0, moveZ);
-
+       
+        if (!block)
+        {
+            gir_personatge(moveZ, moveX);
+            moveDirection = new Vector3(moveX, 0, moveZ);
+        }
         if (moveDirection == Vector3.zero)
         {
             Idle();
@@ -66,6 +77,7 @@ public class PlayerMoviment : MonoBehaviour
         moveDirection *= moveSpeed;
 
         controller.Move(moveDirection * Time.deltaTime);
+       
     }
 
     private void Idle()

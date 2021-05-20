@@ -11,6 +11,24 @@ TagManager:
   - Carne
   - CarneCortada
   - Sarten
+  - SartenCarne
+  - Cuchillo
+  - Tomate
+  - TomateCortado
+  - Lechuga
+  - LechugaCortada
+  - Queso
+  - QuesoCortado
+  - Pan
+  - PanCortado
+  - Cebolla
+  - CebollaCortada
+  - Gambas
+  - GambasCortadas
+  - Arroz
+  - ArrozCortado
+  - Pizza
+  - PizzaCortada
   layers:
   - Default
   - TransparentFX

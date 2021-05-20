@@ -5,10 +5,11 @@ using UnityEngine;
 public class CombinacionesSarten : MonoBehaviour
 {
 
-    public GameObject myHands; //reference to your hands/the position where you want your object to go
+    GameObject myHands; //reference to your hands/the position where you want your object to go
     bool fusionarcarne_sarten; //a bool to see if you fusionate them
     GameObject Object; // the gameobject onwhich you collided with
     private Vector3 pos;
+    public GameObject player;
     [SerializeField]
     private GameObject prefabSartenCarne;
     private GameObject _sartencarne;
@@ -16,7 +17,7 @@ public class CombinacionesSarten : MonoBehaviour
 
     void Start()
     {
-        
+        myHands = player.transform.Find("mixamorig:Hips").Find("mixamorig:Spine").gameObject;
     }
 
     void Update()
@@ -40,17 +41,17 @@ public class CombinacionesSarten : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) // to see when the player enters the collider
     {
-        Debug.Log(other.gameObject.name);
-        Debug.Log(other.gameObject.transform.parent);
-        
+        Debug.Log(other.gameObject.tag);
+        Debug.Log(other.transform.parent);
+       
 
-        if (other.gameObject.tag == "Carne" && other.transform.parent != myHands.transform)
+
+
+        if (other.gameObject.tag == "CarneCortada" && other.transform.parent != myHands.transform)
         {
-            //Debug.Log("Carne");
-            Debug.Log(other.gameObject.transform.parent);
             Debug.Log("Combinacion");
             fusionarcarne_sarten = true;
-            Object = other.gameObject; //set the gameobject you collided with to one you can reference
+            Object = other.gameObject;
           
         } 
             

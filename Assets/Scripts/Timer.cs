@@ -34,7 +34,6 @@ public class Timer : MonoBehaviour
         }
         else if (tiempo > 0)
         {
-
             tiempo -= 1 * Time.deltaTime;
             tiempoText = "" + tiempo.ToString("f0");
         }
