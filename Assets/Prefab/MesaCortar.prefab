@@ -75,7 +75,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cuchillo: {fileID: 6041788472216280500, guid: 84ee0ec9028d9104cb660ded25434356, type: 3}
   player: {fileID: 8418020490219754742, guid: ba017e4e363082042b62eab0247aa88a, type: 3}
-  prefabCarneCortada: {fileID: 0}
+  prefabCarneCortada: {fileID: 3247996948116636613, guid: 6338a1bef979a154298301c7064d24a0, type: 3}
+  prefabTomateCortado: {fileID: 3381169733205840727, guid: 234966b597f261045abde0bc410ed963, type: 3}
+  prefabLechugaCortada: {fileID: 8792417553839375192, guid: 8fb63745c3a6efc41b4656987dbcbba8, type: 3}
+  prefabQuesoCortado: {fileID: 5008359268352389770, guid: f332f94d3176c544bb832a155667b747, type: 3}
+  prefabPizzaCortada: {fileID: 7667555079176370285, guid: 92ec5d8827d1362499dd928798fcc282, type: 3}
+  prefabPanCortado: {fileID: 5440764906457640495, guid: 7e045713ce1bfd34d84e621d5643cb6c, type: 3}
+  prefabCebollaCortada: {fileID: 666660682611980564, guid: e1e17ea02ccfbe54ebe6601ce9fe157c, type: 3}
+  prefabGambasCortadas: {fileID: 8372503625462850401, guid: 944b26896dfda994eaf54f39b1b2b796, type: 3}
+  prefabArrozCortado: {fileID: 1273830271336891673, guid: 856db1716c925aa4c93b3250b3e92124, type: 3}
 --- !u!114 &-1773710491829070533
 MonoBehaviour:
   m_ObjectHideFlags: 0

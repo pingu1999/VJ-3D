@@ -16,6 +16,14 @@ public class MesaCortar : MonoBehaviour
 
     //prefabs
     [SerializeField] private GameObject prefabCarneCortada;
+    [SerializeField] private GameObject prefabTomateCortado;
+    [SerializeField] private GameObject prefabLechugaCortada;
+    [SerializeField] private GameObject prefabQuesoCortado;
+    [SerializeField] private GameObject prefabPizzaCortada;
+    [SerializeField] private GameObject prefabPanCortado;
+    [SerializeField] private GameObject prefabCebollaCortada;
+    [SerializeField] private GameObject prefabGambasCortadas; 
+    [SerializeField] private GameObject prefabArrozCortado;
 
     void Start()
     {
@@ -25,24 +33,68 @@ public class MesaCortar : MonoBehaviour
         Hand = player.transform.Find("mixamorig:Hips").Find("mixamorig:Spine").Find("mixamorig:Spine1").Find("mixamorig:Spine2").Find("mixamorig:RightShoulder").Find("mixamorig:RightArm").Find("mixamorig:RightForeArm").Find("mixamorig:RightHand").gameObject;
 }
 
+    void setsustituto()
+    {
+    
+        if (ObjectIwantToPickUp.gameObject.tag == "Carne")
+        {
+            sustituto = Instantiate(prefabCarneCortada) as GameObject;
+        }
+
+        else if (ObjectIwantToPickUp.gameObject.tag == "Tomate")
+        {
+          
+            sustituto = Instantiate(prefabTomateCortado) as GameObject;
+        }
+
+        else if (ObjectIwantToPickUp.gameObject.tag == "Lechuga")
+        {
+            sustituto = Instantiate(prefabLechugaCortada) as GameObject;
+        }
+
+        else if (ObjectIwantToPickUp.gameObject.tag == "Queso")
+        {
+            sustituto = Instantiate(prefabQuesoCortado) as GameObject;
+        }
+
+        else if (ObjectIwantToPickUp.gameObject.tag == "Pizza")
+        {
+            sustituto = Instantiate(prefabPizzaCortada) as GameObject;
+        }
+
+        else if (ObjectIwantToPickUp.gameObject.tag == "Pan")
+        {
+            sustituto = Instantiate(prefabPanCortado) as GameObject;
+        }
+
+        else if (ObjectIwantToPickUp.gameObject.tag == "Cebolla")
+        {
+            sustituto = Instantiate(prefabCebollaCortada) as GameObject;
+        }
+
+        else if (ObjectIwantToPickUp.gameObject.tag == "Gambas")
+        {
+            sustituto = Instantiate(prefabGambasCortadas) as GameObject;
+        }
+        else if (ObjectIwantToPickUp.gameObject.tag == "Arroz")
+        {
+            sustituto = Instantiate(prefabArrozCortado) as GameObject;
+        }
+
+    }
+
 
     public IEnumerator accion(int seconds)
     {
         PlayerMoviment.Recoger();
         yield return new WaitForSeconds((float)seconds);  // espera 3 segons
-
+        //Debug.Log(cuchillo.transform.position);
+        //Debug.Log(cuchillo.transform.rotation);
 
         pos = myHands.transform.position;
         orientacio();
-        if (ObjectIwantToPickUp.gameObject.tag == "Carne")
-        {
-            sustituto = Instantiate(prefabCarneCortada) as GameObject;
-        }
+        setsustituto();
         
-        else if (ObjectIwantToPickUp.gameObject.tag != "Carne")
-        {
-            sustituto = Instantiate(prefabCarneCortada) as GameObject;
-        }
 
 
         //set de las variables de playerpick
@@ -63,13 +115,13 @@ public class MesaCortar : MonoBehaviour
         cuchillo.GetComponent<Rigidbody>().isKinematic = true;
         Quaternion rot = new Quaternion(0, 0, 0, 0);
         cuchillo.transform.position = pos;
-        cuchillo.transform.Rotate(0f, 0f, +98.0f);
+        cuchillo.transform.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 1.0f);
         cuchillo.transform.parent = null;
 
         Debug.Log("3 segons despres");
         ready = true;
         ObjectIwantToPickUp = null;
-
+        
 
         PlayerMoviment.setblock(false);
         
@@ -124,7 +176,7 @@ public class MesaCortar : MonoBehaviour
     }
     void Update()
     {
-        
+        //Debug.Log(cuchillo.transform.rotation);
         if (ready == true && posicionar == true && ObjectIwantToPickUp != null) // if you enter thecollider of the objecct
         {
             //Debug.Log("cojo cuchilo y dejo lo que tengo en la mano");
@@ -137,25 +189,25 @@ public class MesaCortar : MonoBehaviour
             ObjectIwantToPickUp.transform.position = pos; // sets the position of the object to your hand position
             ObjectIwantToPickUp.transform.rotation = rot;
             ObjectIwantToPickUp.transform.parent = null;
-            Debug.Log("carne sin padre");
 
-            //recoger el cuchillo
-            //PlayerMoviment.Recoger();
-            //orientacio();
-            pos = Hand.transform.position;
-            pos.x += -0.0060f;
-            pos.y += 0.0013f;
             cuchillo.GetComponent<Rigidbody>().isKinematic = true;   //makes the rigidbody not be acted upon by forces
               // sets the position of the object to your hand position
             cuchillo.transform.parent = Hand.transform; //makes the object become a child of the parent so that it moves with the hands
-            Debug.Log(cuchillo.transform.parent);
-            while (cuchillo.transform.parent != Hand.transform) {
-                Debug.Log("asignando padre");
-            }
+           // Debug.Log(cuchillo.transform.parent);
+            pos = new Vector3(0f, 0f, 0f);
             cuchillo.transform.position = pos;
-            Debug.Log(cuchillo.transform.position);
+            //Vector3(-1.69308132e-05, 1.22643337e-06, 2.55531286e-05)
+            //    Vector3(-0.0296, 0.00120000006, 0.00529999984)
             cuchillo.transform.Rotate(0f, 164f, -98.0f);
-            Debug.Log(cuchillo.transform.rotation);
+           // Debug.Log(cuchillo.transform.rotation);
+            pos = Hand.transform.position;
+            pos.x += -0.6f;
+            pos.y += 0.00120000006f;
+            pos.z += 0.00529999984f;
+            //cuchillo.transform.GetChild(0).position = pos;
+            cuchillo.transform.position = pos;
+           // Debug.Log(cuchillo.transform.position);
+            
 
 
 
@@ -172,7 +224,7 @@ public class MesaCortar : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other) // to see when the player enters the collider
     {
-        if ((other.gameObject.transform.parent != myHands.transform) && other.gameObject.tag != "Player" && other.gameObject.tag != "Cuchillo" && (other.gameObject.tag == "Carne" /*|| other.gameObject.tag == "Lechuga" || other.gameObject.tag == "Tomate" || other.gameObject.tag == "Queso" || other.gameObject.tag == "Pizza" || other.gameObject.tag == "Pan" || other.gameObject.tag == "Cebolla" || other.gameObject.tag == "Gambas" || other.gameObject.tag == "Arroz"*/)) //on the object you want to pick up set the tag to be anything, in this case "object"
+        if ((other.gameObject.transform.parent != myHands.transform) && other.gameObject.tag != "Player" && other.gameObject.tag != "Cuchillo" && (other.gameObject.tag == "Carne" || other.gameObject.tag == "Lechuga" || other.gameObject.tag == "Tomate" || other.gameObject.tag == "Queso" || other.gameObject.tag == "Pizza" || other.gameObject.tag == "Pan" || other.gameObject.tag == "Cebolla" || other.gameObject.tag == "Gambas" || other.gameObject.tag == "Arroz")) //on the object you want to pick up set the tag to be anything, in this case "object"
         {
             //Debug.Log("dentro2");
             posicionar = true;

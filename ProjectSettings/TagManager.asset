@@ -29,6 +29,9 @@ TagManager:
   - ArrozCortado
   - Pizza
   - PizzaCortada
+  - Plato
+  - SartenArrozTomateCarne
+  - SartenCarneHecha
   layers:
   - Default
   - TransparentFX
