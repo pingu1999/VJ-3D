@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 4587762626505006691}
   m_Layer: 0
   m_Name: Gambas
-  m_TagString: Untagged
+  m_TagString: Gambas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

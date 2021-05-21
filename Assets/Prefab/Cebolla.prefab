@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1383321720466226494}
   m_Layer: 0
   m_Name: Cebolla
-  m_TagString: Untagged
+  m_TagString: Cebolla
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
