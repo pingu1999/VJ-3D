@@ -15,6 +15,11 @@ public class PlayerPick : MonoBehaviour
     {
         hasItem = b;
     }
+
+    static public bool gethasItem()
+    {
+        return hasItem;
+    }
     static public void sethObjectIwantToPickUp (GameObject go)
     {
         ObjectIwantToPickUp = go;
