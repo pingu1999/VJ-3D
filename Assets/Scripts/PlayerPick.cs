@@ -115,7 +115,6 @@ public class PlayerPick : MonoBehaviour
         {
             canpickup = true;  //set the pick up bool to true
             ObjectIwantToPickUp = other.gameObject; //set the gameobject you collided with to one you can reference
-            Debug.Log(other.name + "trigger");
         }
     }
     private void OnTriggerExit(Collider other)

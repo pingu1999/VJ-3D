@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7916977063423050344}
   - component: {fileID: 2139765344404130000}
   - component: {fileID: 8946075023883023995}
+  - component: {fileID: -1501821163620077151}
   m_Layer: 0
   m_Name: PizzaQueso
   m_TagString: PizzaQueso
@@ -76,6 +77,31 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 10, z: 10}
   m_Center: {x: 0, y: 2.2, z: 0}
+--- !u!114 &-1501821163620077151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2453092176460016111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4852ea7cde163a446b5a0d072df05127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabEnsaladaTomate: {fileID: 8160875080462892423, guid: 3fbca983fc0a96b4c80f19f885531843, type: 3}
+  prefabHamburguesaLechugaTomate: {fileID: 813829584306730455, guid: 1a0bf83b7e6734f46a5d74050e8252e8, type: 3}
+  prefabHamburguesaSimple: {fileID: 4129390663244502820, guid: cf42b28ef0edb9c4d9d4bcc84e12b998, type: 3}
+  prefabPaella: {fileID: 4816018919472003828, guid: 973aa63bab27da24ca906c8e0d549026, type: 3}
+  prefabPizzaQueso: {fileID: 2453092176460016111}
+  prefabPizzaSimple: {fileID: 7088901346386052990, guid: 23598345a8e5bd04ab751a319738ea16, type: 3}
+  prefabBasePizza: {fileID: 8700253696968900092, guid: b8aa7af224825ce4a9e32d207c2d2c67, type: 3}
+  prefabBasePizzaTomate: {fileID: 531414719485512778, guid: 9406ee661cf7f4844bd1ddd5118a3b50, type: 3}
+  prefabBasePizzaTomateQueso: {fileID: 8517789076482461425, guid: 7f91f2d0fdbd2fb43a2fb207f4f9a28c, type: 3}
+  prefabPlatoLechuga: {fileID: 7080669443844809800, guid: 758b549996c6bcf41bdff9a8e40913d1, type: 3}
+  prefabPan: {fileID: 8095811134553552749, guid: 69c59324d12253546a0fd222ae816999, type: 3}
+  prefabPanLechuga: {fileID: 1137401970369270897, guid: 03dd002715b2e444faf5ba8bd2361ef3, type: 3}
+  prefabPanLechugaTomate: {fileID: 2242817660496801901, guid: c643441c8397d554195985cb80406149, type: 3}
 --- !u!1 &6883446049094177078
 GameObject:
   m_ObjectHideFlags: 0

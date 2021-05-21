@@ -190,31 +190,21 @@ public class MesaCortar : MonoBehaviour
             ObjectIwantToPickUp.transform.rotation = rot;
             ObjectIwantToPickUp.transform.parent = null;
 
-            cuchillo.GetComponent<Rigidbody>().isKinematic = true;   //makes the rigidbody not be acted upon by forces
-              // sets the position of the object to your hand position
-            cuchillo.transform.parent = Hand.transform; //makes the object become a child of the parent so that it moves with the hands
-           // Debug.Log(cuchillo.transform.parent);
+            cuchillo.GetComponent<Rigidbody>().isKinematic = true;  
+            cuchillo.transform.parent = Hand.transform; 
+          
             pos = new Vector3(0f, 0f, 0f);
             cuchillo.transform.position = pos;
-            //Vector3(-1.69308132e-05, 1.22643337e-06, 2.55531286e-05)
-            //    Vector3(-0.0296, 0.00120000006, 0.00529999984)
+            
             cuchillo.transform.Rotate(0f, 164f, -98.0f);
-           // Debug.Log(cuchillo.transform.rotation);
+           
             pos = Hand.transform.position;
             pos.x += -0.6f;
             pos.y += 0.00120000006f;
             pos.z += 0.00529999984f;
-            //cuchillo.transform.GetChild(0).position = pos;
             cuchillo.transform.position = pos;
-           // Debug.Log(cuchillo.transform.position);
-            
+           
 
-
-
-
-
-
-            //Llamo a funcion para bloquear al player y llamo a cortar que tarda 3 segundos.
             PlayerMoviment.setblock(true);
             StartCoroutine(accion(3));
 
