@@ -26,14 +26,14 @@ public class ResaltarObjetivo : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) // to see when the player enters the collider
     {
-        Debug.Log(other.gameObject.tag);
-        Debug.Log(resaltar); //true
+        //Debug.Log(other.gameObject.tag);
+        //Debug.Log(resaltar); //true
         if (other.gameObject.tag == "Untagged" && !resaltar) 
         {
-            Debug.Log("entra");
+            //Debug.Log("entra");
             resaltar = true;  //set the pick up bool to true
             Mesas = other.gameObject;
-            Debug.Log(Mesas);
+           // Debug.Log(Mesas);
         }
     }
     private void OnTriggerExit(Collider other)

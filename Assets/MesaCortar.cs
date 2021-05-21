@@ -143,15 +143,18 @@ public class MesaCortar : MonoBehaviour
             //PlayerMoviment.Recoger();
             //orientacio();
             pos = Hand.transform.position;
-            pos.x = -0.0131000001f;
-            pos.y = 0.000300000014f;
+            pos.x += -0.0060f;
+            pos.y += 0.0013f;
             cuchillo.GetComponent<Rigidbody>().isKinematic = true;   //makes the rigidbody not be acted upon by forces
               // sets the position of the object to your hand position
             cuchillo.transform.parent = Hand.transform; //makes the object become a child of the parent so that it moves with the hands
             Debug.Log(cuchillo.transform.parent);
+            while (cuchillo.transform.parent != Hand.transform) {
+                Debug.Log("asignando padre");
+            }
             cuchillo.transform.position = pos;
             Debug.Log(cuchillo.transform.position);
-            cuchillo.transform.Rotate(0f, 0f, -98.0f);
+            cuchillo.transform.Rotate(0f, 164f, -98.0f);
             Debug.Log(cuchillo.transform.rotation);
 
 
