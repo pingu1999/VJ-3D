@@ -6,9 +6,19 @@ public class PlayerPick : MonoBehaviour
 {
     GameObject myHands; //reference to your hands/the position where you want your object to go
     bool canpickup; //a bool to see if you can or cant pick up the item
-    GameObject ObjectIwantToPickUp; // the gameobject onwhich you collided with
-    bool hasItem; 
+    static GameObject ObjectIwantToPickUp; // the gameobject onwhich you collided with
+    static bool hasItem; 
     private Vector3 pos;
+
+
+    static public void sethasItem(bool  b)
+    {
+        hasItem = b;
+    }
+    static public void sethObjectIwantToPickUp (GameObject go)
+    {
+        ObjectIwantToPickUp = go;
+    }
 
     void Start()
     {
@@ -100,7 +110,7 @@ public class PlayerPick : MonoBehaviour
         {
             canpickup = true;  //set the pick up bool to true
             ObjectIwantToPickUp = other.gameObject; //set the gameobject you collided with to one you can reference
-           // Debug.Log(other.name + "trigger");
+            Debug.Log(other.name + "trigger");
         }
     }
     private void OnTriggerExit(Collider other)

@@ -44,18 +44,26 @@ public class MesaCortar : MonoBehaviour
             sustituto = Instantiate(prefabCarneCortada) as GameObject;
         }
 
+
+        //set de las variables de playerpick
+        PlayerPick.sethasItem(true);
+        PlayerPick.sethObjectIwantToPickUp(sustituto);
+
+        //colocar el nuevo objeto en la mano
         Destroy(ObjectIwantToPickUp);
         sustituto.GetComponent<Rigidbody>().isKinematic = true;   //makes the rigidbody not be acted upon by forces
         sustituto.transform.position = pos; // sets the position of the object to your hand position
         sustituto.transform.parent = myHands.transform; //makes the object become a child of the parent so that it moves with the hands
 
+
+
         //dejar el cuchillo
         pos = this.transform.position;
-        pos.y += 15;
+        pos.y += 17.6f;
         cuchillo.GetComponent<Rigidbody>().isKinematic = true;
         Quaternion rot = new Quaternion(0, 0, 0, 0);
         cuchillo.transform.position = pos;
-        cuchillo.transform.rotation = rot;
+        cuchillo.transform.Rotate(0f, 0f, +98.0f);
         cuchillo.transform.parent = null;
 
         Debug.Log("3 segons despres");
@@ -135,21 +143,23 @@ public class MesaCortar : MonoBehaviour
             //PlayerMoviment.Recoger();
             //orientacio();
             pos = Hand.transform.position;
-            pos.x += -0.0335000008f;
-            pos.x += 0.0046000001f;
-            pos.y += -0.00120000006f;
-            rot = new Quaternion(71.5997849f, 333.548096f, 357.075043f, 0);
+            pos.x = -0.0131000001f;
+            pos.y = 0.000300000014f;
             cuchillo.GetComponent<Rigidbody>().isKinematic = true;   //makes the rigidbody not be acted upon by forces
-            cuchillo.transform.position = Hand.transform.position; ; // sets the position of the object to your hand position
-            //cuchillo.transform.Rotate(71.5997849f, 333.548096f, 357.075043f);
+              // sets the position of the object to your hand position
             cuchillo.transform.parent = Hand.transform; //makes the object become a child of the parent so that it moves with the hands
-            
+            Debug.Log(cuchillo.transform.parent);
+            cuchillo.transform.position = pos;
+            Debug.Log(cuchillo.transform.position);
+            cuchillo.transform.Rotate(0f, 0f, -98.0f);
+            Debug.Log(cuchillo.transform.rotation);
 
 
 
 
 
-            // Y para llamarla:
+
+            //Llamo a funcion para bloquear al player y llamo a cortar que tarda 3 segundos.
             PlayerMoviment.setblock(true);
             StartCoroutine(accion(3));
 

@@ -35,10 +35,13 @@ public class ResaltarObjetivo : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        resaltar = false; //when you leave the collider set the canpickup bool to false
-        if (Mesas != null)
+        if (other.gameObject.tag == "Untagged" && resaltar)
         {
-            Mesas.GetComponent<Outline>().enabled = false;
+            resaltar = false; 
+            if (Mesas != null)
+            {
+                Mesas.GetComponent<Outline>().enabled = false;
+            }
         }
     }
 }
