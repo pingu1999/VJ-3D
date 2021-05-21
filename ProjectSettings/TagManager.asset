@@ -32,6 +32,24 @@ TagManager:
   - Plato
   - SartenArrozTomateCarne
   - SartenCarneHecha
+  - PlatoBasePizzaTomateQueso
+  - PlatoBasePizzaTomate
+  - PlatoBasePizza
+  - PlatoLechuga
+  - PlatoPanLechuga
+  - PlatoPanLechugaTomate
+  - PlatoPan
+  - SartenArrozTomateCarneCebolla
+  - SartenArrozTomateCarneCebollaGambasCocinado
+  - Paella
+  - EnsaladaTomate
+  - HamburguesaLechugaTomate
+  - HamburguesaSimple
+  - PizzaQueso
+  - PizzaSimple
+  - Papelera
+  - SartenArrozTomate
+  - SartenArrozTomateCarneCebollaGambas
   layers:
   - Default
   - TransparentFX
