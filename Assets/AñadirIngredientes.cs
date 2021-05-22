@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class AñadirIngredientes : MonoBehaviour
 {
-    bool lechuga, tomate, pan, pizza, queso, paella, carne;
+    bool lechuga, tomate, pan, pizza, queso, paella, carne, novalid;
     GameObject Object, myHands, Player;
+    private Vector3 pos;
     GameObject _platoposcombinacion;
     [SerializeField] private GameObject prefabSarten, prefabEnsaladaTomate, prefabHamburguesaLechugaTomate, prefabHamburguesaSimple, prefabPaella, prefabPizzaQueso;
     [SerializeField] private GameObject prefabPizzaSimple, prefabBasePizza, prefabBasePizzaTomate, prefabBasePizzaTomateQueso, prefabPlatoLechuga, prefabPan, prefabPanLechuga, prefabPanLechugaTomate;
 
 
-    void orientacio(Vector3 pos)
+    void orientacio()
     {
         string dir = PlayerMoviment.Direccio();
         if (dir == "north")
@@ -58,6 +59,7 @@ public class AñadirIngredientes : MonoBehaviour
             pos.z -= 8.5f;
             pos.y += 6f;
         }
+        else Debug.Log("Tonto");
     }
     void Start()
     {
@@ -89,28 +91,44 @@ public class AñadirIngredientes : MonoBehaviour
         }
         else if (carne && gameObject.tag == "PlatoPanLechugaTomate")
         {
-            Vector3 pos = gameObject.transform.position;
-            Vector3 pos1 = Object.transform.position;
+            Vector3 pos1 = gameObject.transform.position;
+            pos = myHands.transform.position;
             Destroy(Object);
             Destroy(gameObject);
 
             tomate = false;
             _platoposcombinacion = Instantiate(prefabHamburguesaLechugaTomate) as GameObject;
-            _platoposcombinacion.transform.position = pos;
+            _platoposcombinacion.transform.position = pos1;
 
 
             GameObject sarten = Instantiate(prefabSarten) as GameObject;
-            orientacio(pos1);
+            orientacio();
             sarten.GetComponent<Rigidbody>().isKinematic = true;
 
             PlayerMoviment.Recoger();
-            sarten.transform.position = pos1; // sets the position of the object to your hand position
+            sarten.transform.position = pos; // sets the position of the object to your hand position
 
             sarten.transform.parent = myHands.transform; 
             PlayerPick.sethasItem(true);
             PlayerPick.sethObjectIwantToPickUp(sarten);
         }
 
+
+        else if (novalid)
+        {
+
+            PlayerMoviment.Recoger();
+            pos = myHands.transform.position;
+            Debug.Log(pos);
+            orientacio();
+            Debug.Log(pos);
+            Object.GetComponent<Rigidbody>().isKinematic = true;   //makes the rigidbody not be acted upon by forces
+            Object.transform.position = pos; // sets the position of the object to your hand position
+            Object.transform.parent = myHands.transform; //makes the object become a child of the parent so that it moves with the hands
+            PlayerPick.sethasItem(true);
+            PlayerPick.sethObjectIwantToPickUp(Object);
+            novalid = false;
+        }
     }
 
     void Update()
@@ -138,5 +156,14 @@ public class AñadirIngredientes : MonoBehaviour
             Object = other.gameObject;
 
        }
+      
+
+
+
+      else if (other.gameObject.tag != "Untagged"  && other.gameObject.tag != "Player" && other.transform.parent == null && other.gameObject.tag != "Plato" && other.gameObject.tag != "Sarten")
+        {
+            novalid = true;
+            Object = other.gameObject;
+        }
     }
 }
