@@ -41,13 +41,7 @@ public class CombinacionesSarten : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) // to see when the player enters the collider
     {
-        //Debug.Log(other.gameObject.tag);
-        //Debug.Log(other.transform.parent);
-       
-
-
-
-        if (other.gameObject.tag == "CarneCortada" && other.transform.parent != myHands.transform)
+        if (other.gameObject.tag == "CarneCortada" && other.transform.parent == null)
         {
             Debug.Log("Combinacion");
             fusionarcarne_sarten = true;

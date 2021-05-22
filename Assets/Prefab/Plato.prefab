@@ -89,7 +89,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4852ea7cde163a446b5a0d072df05127, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabPlatoLechuga: {fileID: 7080669443844809800, guid: 758b549996c6bcf41bdff9a8e40913d1, type: 3}
+  Player: {fileID: 8418020490219754742, guid: ba017e4e363082042b62eab0247aa88a, type: 3}
+  prefabSarten: {fileID: 7652902168299456506, guid: 249837c9e40d01a488a4734a8f1ab9f9, type: 3}
   prefabEnsaladaTomate: {fileID: 8160875080462892423, guid: 3fbca983fc0a96b4c80f19f885531843, type: 3}
   prefabHamburguesaLechugaTomate: {fileID: 813829584306730455, guid: 1a0bf83b7e6734f46a5d74050e8252e8, type: 3}
   prefabHamburguesaSimple: {fileID: 4129390663244502820, guid: cf42b28ef0edb9c4d9d4bcc84e12b998, type: 3}
@@ -99,6 +100,7 @@ MonoBehaviour:
   prefabBasePizza: {fileID: 8700253696968900092, guid: b8aa7af224825ce4a9e32d207c2d2c67, type: 3}
   prefabBasePizzaTomate: {fileID: 531414719485512778, guid: 9406ee661cf7f4844bd1ddd5118a3b50, type: 3}
   prefabBasePizzaTomateQueso: {fileID: 8517789076482461425, guid: 7f91f2d0fdbd2fb43a2fb207f4f9a28c, type: 3}
+  prefabPlatoLechuga: {fileID: 7080669443844809800, guid: 758b549996c6bcf41bdff9a8e40913d1, type: 3}
   prefabPan: {fileID: 8095811134553552749, guid: 69c59324d12253546a0fd222ae816999, type: 3}
   prefabPanLechuga: {fileID: 1137401970369270897, guid: 03dd002715b2e444faf5ba8bd2361ef3, type: 3}
   prefabPanLechugaTomate: {fileID: 2242817660496801901, guid: c643441c8397d554195985cb80406149, type: 3}

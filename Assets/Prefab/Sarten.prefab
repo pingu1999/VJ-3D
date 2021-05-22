@@ -170,5 +170,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdab67017798d294f97a95f13644da46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myHands: {fileID: 0}
+  player: {fileID: 8418020490219754742, guid: ba017e4e363082042b62eab0247aa88a, type: 3}
   prefabSartenCarne: {fileID: 6909583350541264034, guid: 800c355d53d33114eb94898cbebd437e, type: 3}

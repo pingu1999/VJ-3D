@@ -5,14 +5,64 @@ using UnityEngine;
 public class AñadirIngredientes : MonoBehaviour
 {
     bool lechuga, tomate, pan, pizza, queso, paella, carne;
-    GameObject Object;
+    GameObject Object, myHands, Player;
     GameObject _platoposcombinacion;
-    [SerializeField] private GameObject prefabEnsaladaTomate, prefabHamburguesaLechugaTomate, prefabHamburguesaSimple, prefabPaella, prefabPizzaQueso;
+    [SerializeField] private GameObject prefabSarten, prefabEnsaladaTomate, prefabHamburguesaLechugaTomate, prefabHamburguesaSimple, prefabPaella, prefabPizzaQueso;
     [SerializeField] private GameObject prefabPizzaSimple, prefabBasePizza, prefabBasePizzaTomate, prefabBasePizzaTomateQueso, prefabPlatoLechuga, prefabPan, prefabPanLechuga, prefabPanLechugaTomate;
 
+
+    void orientacio(Vector3 pos)
+    {
+        string dir = PlayerMoviment.Direccio();
+        if (dir == "north")
+        {
+            pos.z += 11f;
+            pos.y += 6f;
+        }
+        else if (dir == "south")
+        {
+            pos.z -= 11f;
+            pos.y += 6f;
+        }
+        else if (dir == "west")
+        {
+            pos.x -= 11f;
+            pos.y += 6f;
+        }
+        else if (dir == "est")
+        {
+            pos.x += 11f;
+            pos.y += 6f;
+        }
+        else if (dir == "north-west")
+        {
+            pos.x += 8.5f;
+            pos.z += 8.5f;
+            pos.y += 6f;
+        }
+        else if (dir == "north-est")
+        {
+            pos.x -= 8.5f;
+            pos.z += 8.5f;
+            pos.y += 6f;
+        }
+        else if (dir == "south-west")
+        {
+            pos.x += 8.5f;
+            pos.z -= 8.5f;
+            pos.y += 6f;
+        }
+        else if (dir == "south-est")
+        {
+            pos.x -= 8.5f;
+            pos.z -= 8.5f;
+            pos.y += 6f;
+        }
+    }
     void Start()
     {
-        
+        Player = GameObject.Find("Player");
+        myHands = Player.transform.Find("mixamorig:Hips").Find("mixamorig:Spine").gameObject;
     }
     void CombinacionConPlatos()
     {
@@ -29,7 +79,6 @@ public class AñadirIngredientes : MonoBehaviour
         }
         else if (tomate && gameObject.tag == "PlatoLechuga")
         {
-            Debug.Log("bien");
             Vector3 pos = gameObject.transform.position;
             Destroy(Object);
             Destroy(gameObject);
@@ -38,6 +87,30 @@ public class AñadirIngredientes : MonoBehaviour
             _platoposcombinacion = Instantiate(prefabEnsaladaTomate) as GameObject;
             _platoposcombinacion.transform.position = pos;
         }
+        else if (carne && gameObject.tag == "PlatoPanLechugaTomate")
+        {
+            Vector3 pos = gameObject.transform.position;
+            Vector3 pos1 = Object.transform.position;
+            Destroy(Object);
+            Destroy(gameObject);
+
+            tomate = false;
+            _platoposcombinacion = Instantiate(prefabHamburguesaLechugaTomate) as GameObject;
+            _platoposcombinacion.transform.position = pos;
+
+
+            GameObject sarten = Instantiate(prefabSarten) as GameObject;
+            orientacio(pos1);
+            sarten.GetComponent<Rigidbody>().isKinematic = true;
+
+            PlayerMoviment.Recoger();
+            sarten.transform.position = pos1; // sets the position of the object to your hand position
+
+            sarten.transform.parent = myHands.transform; 
+            PlayerPick.sethasItem(true);
+            PlayerPick.sethObjectIwantToPickUp(sarten);
+        }
+
     }
 
     void Update()
@@ -55,11 +128,15 @@ public class AñadirIngredientes : MonoBehaviour
 
       else if (other.gameObject.tag == "TomateCortado" && other.transform.parent == null)
        {
-            //Debug.Log("TomateCortado");
             tomate = true;
             Object = other.gameObject;
 
        }
+      else if (other.gameObject.tag == "SartenCarneHecha" && other.transform.parent == null)
+       { 
+            carne = true;
+            Object = other.gameObject;
 
+       }
     }
 }

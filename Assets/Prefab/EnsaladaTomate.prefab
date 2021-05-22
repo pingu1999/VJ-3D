@@ -170,6 +170,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4852ea7cde163a446b5a0d072df05127, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 8418020490219754742, guid: ba017e4e363082042b62eab0247aa88a, type: 3}
+  prefabSarten: {fileID: 7652902168299456506, guid: 249837c9e40d01a488a4734a8f1ab9f9, type: 3}
   prefabEnsaladaTomate: {fileID: 8160875080462892423}
   prefabHamburguesaLechugaTomate: {fileID: 813829584306730455, guid: 1a0bf83b7e6734f46a5d74050e8252e8, type: 3}
   prefabHamburguesaSimple: {fileID: 4129390663244502820, guid: cf42b28ef0edb9c4d9d4bcc84e12b998, type: 3}
