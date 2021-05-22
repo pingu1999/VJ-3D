@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 8731340919867712309}
   m_Layer: 0
   m_Name: ArrozSuelto
-  m_TagString: Untagged
+  m_TagString: ArrozCortado
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -215,8 +215,7 @@ public class MesaCortar : MonoBehaviour
     private void OnTriggerEnter(Collider other) // to see when the player enters the collider
     {
         if ((other.gameObject.transform.parent != myHands.transform) && other.gameObject.tag != "Player" && other.gameObject.tag != "Cuchillo" && (other.gameObject.tag == "Carne" || other.gameObject.tag == "Lechuga" || other.gameObject.tag == "Tomate" || other.gameObject.tag == "Queso" || other.gameObject.tag == "Pizza" || other.gameObject.tag == "Pan" || other.gameObject.tag == "Cebolla" || other.gameObject.tag == "Gambas" || other.gameObject.tag == "Arroz")) //on the object you want to pick up set the tag to be anything, in this case "object"
-        {
-            //Debug.Log("dentro2");
+        { 
             posicionar = true;
             ObjectIwantToPickUp = other.gameObject; 
         }

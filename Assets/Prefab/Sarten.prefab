@@ -170,5 +170,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdab67017798d294f97a95f13644da46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 8418020490219754742, guid: ba017e4e363082042b62eab0247aa88a, type: 3}
+  prefabSarten: {fileID: 7652902168299456506}
+  prefabSartenArroz: {fileID: 1587391858290604479, guid: 39fa3c41d9695c541b4614ba39d3661c, type: 3}
+  prefabSartenArrozTomate: {fileID: 5016894284987279776, guid: ac9ada1277bcd95429d78c2c72eb96d0, type: 3}
+  prefabSartenArrozTomateCarne: {fileID: 6391847405058493006, guid: 0e8ea843c8d475142a86af11c6c3c547, type: 3}
+  prefabSartenArrozTomateCarneCebolla: {fileID: 6289412917785333895, guid: 926a5b9edb547e747986cbf709c11aa1, type: 3}
+  prefabSartenArrozTomateCarneCebollaGambas: {fileID: 6756137221821740278, guid: 82dd4ab366d1b15418934decac197390, type: 3}
+  prefabSartenArrozTomateCarneCebollaGambasCocinado: {fileID: 8416280970503947743, guid: f50d5e2c35cff414b9a9f14e53eda079, type: 3}
   prefabSartenCarne: {fileID: 6909583350541264034, guid: 800c355d53d33114eb94898cbebd437e, type: 3}
+  prefabSartenCarneHecha: {fileID: 986436357356159143, guid: c7bc191e9c8079a4da08241d0dc6b762, type: 3}
+  prefabSartenPescado: {fileID: 0}

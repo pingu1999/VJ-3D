@@ -83,7 +83,7 @@ MonoBehaviour:
   prefabPanCortado: {fileID: 5440764906457640495, guid: 7e045713ce1bfd34d84e621d5643cb6c, type: 3}
   prefabCebollaCortada: {fileID: 666660682611980564, guid: e1e17ea02ccfbe54ebe6601ce9fe157c, type: 3}
   prefabGambasCortadas: {fileID: 8372503625462850401, guid: 944b26896dfda994eaf54f39b1b2b796, type: 3}
-  prefabArrozCortado: {fileID: 1273830271336891673, guid: 856db1716c925aa4c93b3250b3e92124, type: 3}
+  prefabArrozCortado: {fileID: 8496776956191252090, guid: 3cf60c8f95cce044aa196deed8b94931, type: 3}
 --- !u!114 &-1773710491829070533
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 7870439834185044909}
   - component: {fileID: 8003224019620313135}
   - component: {fileID: 7859355135837101486}
+  - component: {fileID: 3661694192946919544}
   m_Layer: 0
   m_Name: SartenArrozTomateCarneCebollaGambasCocinado
   m_TagString: SartenArrozTomateCarneCebollaGambasCocinado
@@ -157,3 +158,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 10, z: 10}
   m_Center: {x: 0, y: 2, z: 0}
+--- !u!114 &3661694192946919544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8416280970503947743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdab67017798d294f97a95f13644da46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabSarten: {fileID: 7652902168299456506, guid: 249837c9e40d01a488a4734a8f1ab9f9, type: 3}
+  prefabSartenArroz: {fileID: 1587391858290604479, guid: 39fa3c41d9695c541b4614ba39d3661c, type: 3}
+  prefabSartenArrozTomate: {fileID: 5016894284987279776, guid: ac9ada1277bcd95429d78c2c72eb96d0, type: 3}
+  prefabSartenArrozTomateCarne: {fileID: 6391847405058493006, guid: 0e8ea843c8d475142a86af11c6c3c547, type: 3}
+  prefabSartenArrozTomateCarneCebolla: {fileID: 6289412917785333895, guid: 926a5b9edb547e747986cbf709c11aa1, type: 3}
+  prefabSartenArrozTomateCarneCebollaGambas: {fileID: 6756137221821740278, guid: 82dd4ab366d1b15418934decac197390, type: 3}
+  prefabSartenArrozTomateCarneCebollaGambasCocinado: {fileID: 8416280970503947743}
+  prefabSartenCarne: {fileID: 6909583350541264034, guid: 800c355d53d33114eb94898cbebd437e, type: 3}
+  prefabSartenCarneHecha: {fileID: 986436357356159143, guid: c7bc191e9c8079a4da08241d0dc6b762, type: 3}
