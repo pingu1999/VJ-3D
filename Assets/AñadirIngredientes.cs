@@ -89,6 +89,70 @@ public class AñadirIngredientes : MonoBehaviour
             _platoposcombinacion = Instantiate(prefabEnsaladaTomate) as GameObject;
             _platoposcombinacion.transform.position = pos;
         }
+        else if (pizza && gameObject.tag == "Plato")
+        {
+            Vector3 pos = gameObject.transform.position;
+            Destroy(Object);
+            Destroy(gameObject);
+
+
+            pizza = false;
+            _platoposcombinacion = Instantiate(prefabBasePizza) as GameObject;
+            _platoposcombinacion.transform.position = pos;
+        }
+        else if (tomate && gameObject.tag == "PlatoBasePizza")
+        {
+            Vector3 pos = gameObject.transform.position;
+            Destroy(Object);
+            Destroy(gameObject);
+
+            tomate = false;
+            _platoposcombinacion = Instantiate(prefabBasePizzaTomate) as GameObject;
+            _platoposcombinacion.transform.position = pos;
+        }
+        else if (queso && gameObject.tag == "PlatoBasePizzaTomate")
+        {
+            Vector3 pos = gameObject.transform.position;
+            Destroy(Object);
+            Destroy(gameObject);
+
+            queso = false;
+            _platoposcombinacion = Instantiate(prefabBasePizzaTomateQueso) as GameObject;
+            _platoposcombinacion.transform.position = pos;
+        }
+        else if (pan && gameObject.tag == "Plato")
+        {
+            Vector3 pos = gameObject.transform.position;
+            Destroy(Object);
+            Destroy(gameObject);
+
+
+            pan = false;
+            _platoposcombinacion = Instantiate(prefabPan) as GameObject;
+            _platoposcombinacion.transform.position = pos;
+        }
+        else if (lechuga && gameObject.tag == "PlatoPan")
+        {
+            Vector3 pos = gameObject.transform.position;
+            Destroy(Object);
+            Destroy(gameObject);
+
+
+            lechuga = false;
+            _platoposcombinacion = Instantiate(prefabPanLechuga) as GameObject;
+            _platoposcombinacion.transform.position = pos;
+        }
+        else if (tomate && gameObject.tag == "PlatoPanLechuga")
+        {
+            Vector3 pos = gameObject.transform.position;
+            Destroy(Object);
+            Destroy(gameObject);
+
+
+            tomate = false;
+            _platoposcombinacion = Instantiate(prefabPanLechugaTomate) as GameObject;
+            _platoposcombinacion.transform.position = pos;
+        }
         else if (carne && gameObject.tag == "PlatoPanLechugaTomate")
         {
             Vector3 pos1 = gameObject.transform.position;
@@ -96,7 +160,7 @@ public class AñadirIngredientes : MonoBehaviour
             Destroy(Object);
             Destroy(gameObject);
 
-            tomate = false;
+            carne = false;
             _platoposcombinacion = Instantiate(prefabHamburguesaLechugaTomate) as GameObject;
             _platoposcombinacion.transform.position = pos1;
 
@@ -111,6 +175,40 @@ public class AñadirIngredientes : MonoBehaviour
             sarten.transform.parent = myHands.transform; 
             PlayerPick.sethasItem(true);
             PlayerPick.sethObjectIwantToPickUp(sarten);
+        }
+        else if (carne && gameObject.tag == "PlatoPan")
+        {
+            Vector3 pos1 = gameObject.transform.position;
+            pos = myHands.transform.position;
+            Destroy(Object);
+            Destroy(gameObject);
+
+            carne = false;
+            _platoposcombinacion = Instantiate(prefabHamburguesaSimple) as GameObject;
+            _platoposcombinacion.transform.position = pos1;
+
+
+            GameObject sarten = Instantiate(prefabSarten) as GameObject;
+            orientacio();
+            sarten.GetComponent<Rigidbody>().isKinematic = true;
+
+            PlayerMoviment.Recoger();
+            sarten.transform.position = pos; // sets the position of the object to your hand position
+
+            sarten.transform.parent = myHands.transform;
+            PlayerPick.sethasItem(true);
+            PlayerPick.sethObjectIwantToPickUp(sarten);
+        }
+        else if (paella && gameObject.tag == "Plato")
+        {
+            Vector3 pos = gameObject.transform.position;
+            Destroy(Object);
+            Destroy(gameObject);
+
+
+            paella = false;
+            _platoposcombinacion = Instantiate(prefabPaella) as GameObject;
+            _platoposcombinacion.transform.position = pos;
         }
 
 
@@ -156,11 +254,31 @@ public class AñadirIngredientes : MonoBehaviour
             Object = other.gameObject;
 
        }
-      
+      else if (other.gameObject.tag == "BaseDePizzaCortada" && other.transform.parent == null)
+       {
+            pizza = true;
+            Object = other.gameObject;
+       }
+      else if (other.gameObject.tag == "QuesoCortado" && other.transform.parent == null)
+       {
+            queso = true;
+            Object = other.gameObject;
+       }
+      else if (other.gameObject.tag == "PanCortado" && other.transform.parent == null)
+       {
+            pan = true;
+            Object = other.gameObject;
+       }
+      else if (other.gameObject.tag == "SartenArrozTomateCarneCebollaGambasCocinado" && other.transform.parent == null)
+       {
+            paella = true;
+            Object = other.gameObject;
+       }
 
 
 
-      else if (other.gameObject.tag != "Untagged"  && other.gameObject.tag != "Player" && other.transform.parent == null && other.gameObject.tag != "Plato" && other.gameObject.tag != "Sarten")
+
+        else if (other.gameObject.tag != "Untagged"  && other.gameObject.tag != "Player" && other.transform.parent == null && other.gameObject.tag != "Plato" && other.gameObject.tag != "Sarten")
         {
             novalid = true;
             Object = other.gameObject;
