@@ -5,7 +5,7 @@ using UnityEngine;
 public class CombinacionesSarten : MonoBehaviour
 {
 
-    bool arroz, tomate, carne, cebolla, gambas, pescado, novalid;
+    bool carneHecha, arroz, tomate, carne, cebolla, gambas, pescado, novalid;
     GameObject Object, myHands, Player;
     private Vector3 pos;
     GameObject _platoposcombinacion;
@@ -91,7 +91,50 @@ public class CombinacionesSarten : MonoBehaviour
             _platoposcombinacion = Instantiate(prefabSartenCarne) as GameObject;
             _platoposcombinacion.transform.position = pos;
         }
+        else if (tomate && gameObject.tag == "SartenArroz")
+        {
+            Vector3 pos = gameObject.transform.position;
+            Destroy(Object);
+            Destroy(gameObject);
 
+
+            tomate = false;
+            _platoposcombinacion = Instantiate(prefabSartenArrozTomate) as GameObject;
+            _platoposcombinacion.transform.position = pos;
+        }
+        else if (carne && gameObject.tag == "SartenArrozTomate")
+        {
+            Vector3 pos = gameObject.transform.position;
+            Destroy(Object);
+            Destroy(gameObject);
+
+
+            carne = false;
+            _platoposcombinacion = Instantiate(prefabSartenArrozTomateCarne) as GameObject;
+            _platoposcombinacion.transform.position = pos;
+        }
+        else if (cebolla && gameObject.tag == "SartenArrozTomateCarne")
+        {
+            Vector3 pos = gameObject.transform.position;
+            Destroy(Object);
+            Destroy(gameObject);
+
+
+            cebolla = false;
+            _platoposcombinacion = Instantiate(prefabSartenArrozTomateCarneCebolla) as GameObject;
+            _platoposcombinacion.transform.position = pos;
+        }
+        else if (gambas && gameObject.tag == "SartenArrozTomateCarneCebolla")
+        {
+            Vector3 pos = gameObject.transform.position;
+            Destroy(Object);
+            Destroy(gameObject);
+
+
+            cebolla = false;
+            _platoposcombinacion = Instantiate(prefabSartenArrozTomateCarneCebollaGambas) as GameObject;
+            _platoposcombinacion.transform.position = pos;
+        }
 
         else if (novalid)
         {
@@ -128,8 +171,26 @@ public class CombinacionesSarten : MonoBehaviour
 
         }
 
+        else if (other.gameObject.tag == "TomateCortado" && other.transform.parent == null)
+        {
+            tomate = true;
+            Object = other.gameObject;
 
+        }
 
+        else if (other.gameObject.tag == "CebollaCortada" && other.transform.parent == null)
+        {
+            cebolla = true;
+            Object = other.gameObject;
+
+        }
+
+        else if (other.gameObject.tag == "GambasCortadas" && other.transform.parent == null)
+        {
+            gambas = true;
+            Object = other.gameObject;
+
+        }
 
         else if (other.gameObject.tag != "Untagged" && other.gameObject.tag != "Player" && other.transform.parent == null && other.gameObject.tag != "Plato" && other.gameObject.tag != "Sarten")
         {

@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 7982723960986533997}
   - component: {fileID: 3308737686997701274}
   m_Layer: 0
-  m_Name: GambasCortadas 1
+  m_Name: GambasCortadas
   m_TagString: GambasCortadas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
