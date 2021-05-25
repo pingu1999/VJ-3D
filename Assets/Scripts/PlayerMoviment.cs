@@ -16,17 +16,10 @@ public class PlayerMoviment : MonoBehaviour
     private Vector3 velocity;
     static bool block;
     
-
-    //[SerializeField] private bool isGrounded;
-    //[SerializeField] private bool groundCheckDistance;
-    //[SerializeField] private LayerMask groundMask;
-    //[SerializeField] private LayerMask gravity;
-
-    //references
     private CharacterController controller;
     private static Animator anim;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -44,7 +37,8 @@ public class PlayerMoviment : MonoBehaviour
     {
         block = b;
     }
-    // Update is called once per frame
+
+
     void Update()
     {
        

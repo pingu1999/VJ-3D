@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 1908518168542257459}
   - component: {fileID: 4345300830689630450}
   - component: {fileID: 4479698538570708569}
+  - component: {fileID: 3291128806640604098}
   m_Layer: 0
   m_Name: Horno
   m_TagString: Untagged
@@ -173,3 +174,15 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &3291128806640604098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6372980437814901225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e58014fc85b67945a4baacef5e2ea35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

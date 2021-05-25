@@ -8,6 +8,7 @@ public class ResaltarObjetivo : MonoBehaviour
     List<GameObject> Mesas = new List<GameObject>();
     void Start()
     {
+        DisplayReceipts.start();
     }
 
   

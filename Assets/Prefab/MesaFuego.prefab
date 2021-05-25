@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 4086708874384518730}
   - component: {fileID: 1881972004726941168}
   - component: {fileID: 4396416891442568778}
+  - component: {fileID: 6510061366858193259}
   m_Layer: 0
   m_Name: MesaFuego
   m_TagString: Untagged
@@ -173,3 +174,15 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &6510061366858193259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5659850419558763557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c3079aff78478c49a715412033e1d3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

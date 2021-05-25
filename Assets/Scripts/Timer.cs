@@ -16,9 +16,9 @@ public class Timer : MonoBehaviour
         timer = GetComponent<Text>();
     }
 
-    static public int getcount ()
+    static public void setcount (int Cont)
     {
-        return count;
+        count = Cont;
     }
 
     public void Update()
