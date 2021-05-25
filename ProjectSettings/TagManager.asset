@@ -50,6 +50,9 @@ TagManager:
   - Papelera
   - SartenArrozTomate
   - SartenArrozTomateCarneCebollaGambas
+  - SartenQuemada
+  - PlatoQuemado
+  - Extintor
   layers:
   - Default
   - TransparentFX

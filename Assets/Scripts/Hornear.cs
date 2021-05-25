@@ -6,8 +6,8 @@ public class Hornear : MonoBehaviour
 {
     GameObject producte, cocinado, myHands;
     static string estat;
-    private float tiempo;
-    private bool product, extraer;
+    private float tiempo, tmp;
+    private bool product, extraer, apagar;
     string input;
     [SerializeField] private GameObject prefabPizzaSimple;
     [SerializeField] private GameObject prefabPlatoBasePizzaTomate;
@@ -23,7 +23,7 @@ public class Hornear : MonoBehaviour
     {
         estat = "apagat";
         tiempo = 0;
-        product = true;
+        product = false;
         extraer = false;
         myHands = Player.transform.Find("mixamorig:Hips").Find("mixamorig:Spine").gameObject;
 
@@ -42,6 +42,7 @@ public class Hornear : MonoBehaviour
         {
             Destroy(producte);
             estat = "cocinando";
+            transform.Find("ParticulasHornoCocinado").gameObject.SetActive(true);
         }
         if (estat == "cocinando" && product && tiempo > 5.0f)
         {
@@ -49,17 +50,20 @@ public class Hornear : MonoBehaviour
         }
         if (estat == "cocinado" && product && tiempo > 7.5f)
         {
+            transform.Find("ParticulasHornoCocinado").gameObject.SetActive(false);
+            transform.Find("ParticulasHornoQuemado").gameObject.SetActive(true);
             estat = "quemado";
-
         }
-        if (estat == "quemado" && product)
+        if (estat == "quemado" && product && apagar && Extentor.get_encendido())
         {
-
+            transform.Find("ParticulasHornoQuemado").gameObject.SetActive(false);
         }
 
         if (extraer && Input.GetKeyDown(KeyCode.E))
         {
             extraer = false;
+            transform.Find("ParticulasHornoCocinado").gameObject.SetActive(false);
+            transform.Find("ParticulasHornoQuemado").gameObject.SetActive(false);
             if (input == "PlatoBasePizzaTomate")
             {
                 if (estat == "cocinado")
@@ -75,9 +79,22 @@ public class Hornear : MonoBehaviour
                 {
                     cocinado = Instantiate(prefabPlatoBasePizzaTomate) as GameObject;
                 }
+                product = false;
+                estat = "apagat";
+                tiempo = 0;
+                extraer = false;
+                PlayerMoviment.Recoger();
+                pos = myHands.transform.position;
+
+                orientacio();
+                cocinado.GetComponent<Rigidbody>().isKinematic = true;
+                cocinado.transform.position = pos;
+                cocinado.transform.parent = myHands.transform;
+                PlayerPick.sethasItem(true);
+                PlayerPick.sethObjectIwantToPickUp(cocinado);
             }
 
-            else
+            else if (input == "PlatoBasePizzaTomateQueso")
             {
                 if (estat == "cocinado")
                 {
@@ -91,21 +108,22 @@ public class Hornear : MonoBehaviour
                 {
                     cocinado = Instantiate(prefabPlatoBasePizzaTomate) as GameObject;
                 }
+                product = false;
+                estat = "apagat";
+                tiempo = 0;
+                extraer = false;
+                PlayerMoviment.Recoger();
+                pos = myHands.transform.position;
+
+                orientacio();
+                cocinado.GetComponent<Rigidbody>().isKinematic = true;
+                cocinado.transform.position = pos;
+                cocinado.transform.parent = myHands.transform;
+                PlayerPick.sethasItem(true);
+                PlayerPick.sethObjectIwantToPickUp(cocinado);
             }
 
-            product = false;
-
-            PlayerMoviment.Recoger();
-            pos = myHands.transform.position;
-
-            orientacio();
-            cocinado.GetComponent<Rigidbody>().isKinematic = true;
-            cocinado.transform.position = pos;
-            Debug.Log(cocinado.transform.position);
-            cocinado.transform.parent = myHands.transform;
-            Debug.Log(cocinado.transform.parent);
-            PlayerPick.sethasItem(true);
-            PlayerPick.sethObjectIwantToPickUp(cocinado);
+            
             
         }
 
@@ -169,18 +187,21 @@ public class Hornear : MonoBehaviour
     {
         if (other.gameObject.transform.parent == null && (other.gameObject.tag == "PlatoBasePizzaTomate" || other.gameObject.tag == "PlatoBasePizzaTomateQueso"))
         {
+            Debug.Log("Entra");
             producte = other.gameObject;
             product = true;
             input = other.name;
         }
 
 
-        Debug.Log(Input.GetKeyDown(KeyCode.E));
         if (other.gameObject.tag == "Player" && !PlayerPick.gethasItem())
         {
-            Debug.Log("Entra");
             extraer = true;
+        }
 
+        if (other.gameObject.tag == "Extintor")
+        {
+            apagar = true;
         }
 
     }
@@ -188,5 +209,6 @@ public class Hornear : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         extraer = false;
+        apagar = false;
     }
 }

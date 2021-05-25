@@ -71,7 +71,6 @@ public class DisplayReceipts : MonoBehaviour
         tmp3 += 1 * Time.deltaTime;
 
         Receipts = ReceiptController.get_recipes();
-
         nameReceta = Receipts[i];
         Barra1.value = tmp1;
         Barra2.value = tmp2;

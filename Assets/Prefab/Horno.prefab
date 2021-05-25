@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6788212203143232030}
   - component: {fileID: 6788212203143232031}
   - component: {fileID: 6788212203143232028}
-  - component: {fileID: 6788212203143232029}
   - component: {fileID: 6788212203143232026}
   - component: {fileID: 6788212203143232027}
   m_Layer: 0
@@ -64,19 +63,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 18, y: 18, z: 18}
   m_Center: {x: 0, y: 6, z: 0}
---- !u!114 &6788212203143232029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6788212203143232024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e7c771a15d7b9d44b7c58cbbf85e637, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 8418020490219754742, guid: ba017e4e363082042b62eab0247aa88a, type: 3}
 --- !u!114 &6788212203143232026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,9 +93,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e58014fc85b67945a4baacef5e2ea35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabPizzaSimple: {fileID: 0}
-  prefabPizzaCompleta: {fileID: 0}
-  Player: {fileID: 0}
+  prefabPizzaSimple: {fileID: 7088901346386052990, guid: 23598345a8e5bd04ab751a319738ea16, type: 3}
+  prefabPlatoBasePizzaTomate: {fileID: 531414719485512778, guid: 9406ee661cf7f4844bd1ddd5118a3b50, type: 3}
+  prefabPizzaCompleta: {fileID: 2453092176460016111, guid: e294b8015820bc443b40c1d93577d35d, type: 3}
+  prefabPlatoBasePizzaTomateQueso: {fileID: 8517789076482461425, guid: 7f91f2d0fdbd2fb43a2fb207f4f9a28c, type: 3}
+  prefabSartenQuemada: {fileID: 8095811134553552749, guid: 69c59324d12253546a0fd222ae816999, type: 3}
+  Player: {fileID: 1095317681326157615, guid: ba017e4e363082042b62eab0247aa88a, type: 3}
 --- !u!1 &6788212204531709081
 GameObject:
   m_ObjectHideFlags: 0
@@ -5003,17 +4992,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<< HEAD
-  - component: {fileID: 5717769346422382431}
-  - component: {fileID: 5717769346422382424}
-  - component: {fileID: 5717769346422382425}
-  - component: {fileID: 5717769346608966366}
-  - component: {fileID: 5717769346608966367}
-=======
   - component: {fileID: 6788212205153759081}
   - component: {fileID: 6788212205153759083}
   - component: {fileID: 6788212205153759080}
->>>>>>> cb52fc824c2e8f2eeb5a26fa74c4f3e760371829
   m_Layer: 0
   m_Name: ParticulasHornoCocinado
   m_TagString: Untagged
@@ -5031,85 +5012,12 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.61, y: 11.22, z: -7.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
-<<<<<<< HEAD
-  m_Children:
-  - {fileID: 5717769346741945151}
-  - {fileID: 5717769346483861418}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &5717769346422382424
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5717769346608966360}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 18, y: 18, z: 18}
-  m_Center: {x: 0, y: 6, z: 0}
---- !u!65 &5717769346422382425
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5717769346608966360}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 18, y: 18, z: 18}
-  m_Center: {x: 0, y: 6, z: 0}
---- !u!114 &5717769346608966366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5717769346608966360}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
---- !u!114 &5717769346608966367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5717769346608966360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e58014fc85b67945a4baacef5e2ea35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabPizzaSimple: {fileID: 7088901346386052990, guid: 23598345a8e5bd04ab751a319738ea16, type: 3}
-  prefabPlatoBasePizzaTomate: {fileID: 531414719485512778, guid: 9406ee661cf7f4844bd1ddd5118a3b50, type: 3}
-  prefabPizzaCompleta: {fileID: 2453092176460016111, guid: e294b8015820bc443b40c1d93577d35d, type: 3}
-  prefabPlatoBasePizzaTomateQueso: {fileID: 8517789076482461425, guid: 7f91f2d0fdbd2fb43a2fb207f4f9a28c, type: 3}
-  prefabSartenQuemada: {fileID: 8095811134553552749, guid: 69c59324d12253546a0fd222ae816999, type: 3}
-  Player: {fileID: 1095317681326157615, guid: ba017e4e363082042b62eab0247aa88a, type: 3}
---- !u!1 &5717769346741945144
-GameObject:
-=======
   m_Children: []
   m_Father: {fileID: 6788212203143232030}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!198 &6788212205153759083
 ParticleSystem:
->>>>>>> cb52fc824c2e8f2eeb5a26fa74c4f3e760371829
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
