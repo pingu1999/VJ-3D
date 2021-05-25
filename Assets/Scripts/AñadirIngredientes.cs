@@ -217,9 +217,7 @@ public class AñadirIngredientes : MonoBehaviour
 
             PlayerMoviment.Recoger();
             pos = myHands.transform.position;
-            Debug.Log(pos);
             orientacio();
-            Debug.Log(pos);
             Object.GetComponent<Rigidbody>().isKinematic = true;   //makes the rigidbody not be acted upon by forces
             Object.transform.position = pos; // sets the position of the object to your hand position
             Object.transform.parent = myHands.transform; //makes the object become a child of the parent so that it moves with the hands

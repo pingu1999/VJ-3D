@@ -92,7 +92,6 @@ GameObject:
   - component: {fileID: 5026020846428559007}
   - component: {fileID: 7069458705766611395}
   - component: {fileID: 4086708874384518730}
-  - component: {fileID: 1881972004726941168}
   - component: {fileID: 4396416891442568778}
   - component: {fileID: 6510061366858193259}
   m_Layer: 0
@@ -143,19 +142,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 18, y: 17.5, z: 18}
   m_Center: {x: 0, y: 6, z: 0}
---- !u!114 &1881972004726941168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5659850419558763557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e7c771a15d7b9d44b7c58cbbf85e637, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 8418020490219754742, guid: ba017e4e363082042b62eab0247aa88a, type: 3}
 --- !u!114 &4396416891442568778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,3 +172,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c3079aff78478c49a715412033e1d3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefabCarneCocinada: {fileID: 986436357356159143, guid: c7bc191e9c8079a4da08241d0dc6b762, type: 3}
+  prefabPaella: {fileID: 8416280970503947743, guid: f50d5e2c35cff414b9a9f14e53eda079, type: 3}
+  Player: {fileID: 1095317681326157615, guid: ba017e4e363082042b62eab0247aa88a, type: 3}

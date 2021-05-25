@@ -47,7 +47,7 @@ public class ReceiptController : MonoBehaviour
     void Update()
     {
         // GameObject[] recipe = new GameObject[] { recipe_1, recipe_2, recipe_3, recipe_4, recipe_5, recipe_6, recipe_7 };
-        Debug.Log(scene_actual);
+        // Debug.Log(scene_actual);
         if (scene_actual == 1 && scene_actual != scene_anterior)
         {
             GameObject[] recipe = new GameObject[] { recipe_1, recipe_2 };

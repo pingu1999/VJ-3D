@@ -27,9 +27,13 @@ public class Cocinar : MonoBehaviour
 
     void Update()
     {
+        //Debug.Log(producte != null);
+        //Debug.Log(estat == "apagat");
+        //Debug.Log(product);
 
         if (producte != null && estat == "apagat" && product)
         {
+            Debug.Log("Encendido");
             Destroy(producte);
             estat = "cocinando";
         }
@@ -111,6 +115,7 @@ public class Cocinar : MonoBehaviour
     {
         if (other.gameObject.transform.parent == null && (other.gameObject.tag == "SartenArrozTomateCarneCebollaGambas" || other.gameObject.tag == "SartenCarne"))
         {
+            Debug.Log("Entra");
             producte = other.gameObject;
             product = true;
             input = other.name;

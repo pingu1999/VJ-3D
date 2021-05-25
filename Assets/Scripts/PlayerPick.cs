@@ -86,7 +86,6 @@ public class PlayerPick : MonoBehaviour
         if (canpickup == true && Input.GetKeyDown(KeyCode.E) && hasItem == false && ObjectIwantToPickUp != null)  // can be e or any key
         {
             PlayerMoviment.Recoger();
-            Debug.Log("recoger");
             pos = myHands.transform.position;
             orientacio();
             ObjectIwantToPickUp.GetComponent<Rigidbody>().isKinematic = true;   //makes the rigidbody not be acted upon by forces
