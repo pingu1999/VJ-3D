@@ -445,6 +445,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: MesaFuego
       objectReference: {fileID: 0}
+    - target: {fileID: 6510061366858193259, guid: bbd7fe13c090bea49a0b680a7a0ac22f, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 8418020490219754742, guid: ba017e4e363082042b62eab0247aa88a, type: 3}
+    - target: {fileID: 6510061366858193259, guid: bbd7fe13c090bea49a0b680a7a0ac22f, type: 3}
+      propertyPath: prefabPaella
+      value: 
+      objectReference: {fileID: 8416280970503947743, guid: f50d5e2c35cff414b9a9f14e53eda079, type: 3}
+    - target: {fileID: 6510061366858193259, guid: bbd7fe13c090bea49a0b680a7a0ac22f, type: 3}
+      propertyPath: prefabCarneCocinada
+      value: 
+      objectReference: {fileID: 986436357356159143, guid: c7bc191e9c8079a4da08241d0dc6b762, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbd7fe13c090bea49a0b680a7a0ac22f, type: 3}
 --- !u!1 &343552000
@@ -1741,6 +1753,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3291128806640604098, guid: 443250aaf0293af41a97e3e44c1d1f2e, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 8418020490219754742, guid: ba017e4e363082042b62eab0247aa88a, type: 3}
+    - target: {fileID: 3291128806640604098, guid: 443250aaf0293af41a97e3e44c1d1f2e, type: 3}
+      propertyPath: prefabPizzaSimple
+      value: 
+      objectReference: {fileID: 7088901346386052990, guid: 23598345a8e5bd04ab751a319738ea16, type: 3}
+    - target: {fileID: 3291128806640604098, guid: 443250aaf0293af41a97e3e44c1d1f2e, type: 3}
+      propertyPath: prefabPizzaCompleta
+      value: 
+      objectReference: {fileID: 2453092176460016111, guid: e294b8015820bc443b40c1d93577d35d, type: 3}
     - target: {fileID: 5997263486861189971, guid: 443250aaf0293af41a97e3e44c1d1f2e, type: 3}
       propertyPath: m_RootOrder
       value: 2
