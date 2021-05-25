@@ -9,6 +9,7 @@ public class PlayerMoviment : MonoBehaviour
     //variables
     [SerializeField] private float moveSpeed;
     [SerializeField] private float walkSpeed;
+    [SerializeField] private GameObject player;
 
     static public string dir;
     public Canvas layout;
@@ -59,12 +60,14 @@ public class PlayerMoviment : MonoBehaviour
         if (moveDirection == Vector3.zero)
         {
             Idle();
+            player.transform.Find("ParticulasPlayer").gameObject.SetActive(false);
         }
         
         else if (moveDirection != Vector3.zero)
         {
             layout.gameObject.SetActive(true);
             walk();
+            player.transform.Find("ParticulasPlayer").gameObject.SetActive(true);
         }
 
 
