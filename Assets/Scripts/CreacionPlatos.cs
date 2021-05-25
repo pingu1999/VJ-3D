@@ -77,7 +77,6 @@ public class CreacionPlatos : MonoBehaviour
             _plato = Instantiate(prefabPlato) as GameObject;
             
             PlayerMoviment.Recoger();
-            Debug.Log("recoger");
             pos = myHands.transform.position;
 
             orientacio();
