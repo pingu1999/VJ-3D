@@ -90,10 +90,8 @@ public class PlayerMoviment : MonoBehaviour
     }
     public static void Recoger()
     {
-
         anim.SetBool("recoger",!anim.GetBool("recoger"));
-       
-        
+
     }
 
 

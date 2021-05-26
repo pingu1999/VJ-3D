@@ -39,7 +39,8 @@ public class Extentor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player" && transform.parent != null)
+        if (other.gameObject.tag == "Player" && transform.parent != null && !PlayerPick.gethasItem())
+
         {
             Debug.Log("entra");
             apagar = true;

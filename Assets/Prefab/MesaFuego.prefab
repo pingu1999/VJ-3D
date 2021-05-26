@@ -9702,7 +9702,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabCarneCocinada: {fileID: 986436357356159143, guid: c7bc191e9c8079a4da08241d0dc6b762, type: 3}
+  prefabCarne: {fileID: 6909583350541264034, guid: 800c355d53d33114eb94898cbebd437e, type: 3}
   prefabPaella: {fileID: 8416280970503947743, guid: f50d5e2c35cff414b9a9f14e53eda079, type: 3}
+  prefabSartenArrozTomateCarneCebollaGambas: {fileID: 6756137221821740278, guid: 82dd4ab366d1b15418934decac197390, type: 3}
+  prefabSartenQuemada: {fileID: 934851708608911580, guid: b6b3c8f5d76828f438b7639191df3427, type: 3}
   Player: {fileID: 1095317681326157615, guid: ba017e4e363082042b62eab0247aa88a, type: 3}
 --- !u!1 &8854426372246279339
 GameObject:

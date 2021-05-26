@@ -102,11 +102,11 @@ public class Hornear : MonoBehaviour
                 }
                 else if (estat == "quemado")
                 {
-                    cocinado = Instantiate(prefabPlatoBasePizzaTomateQueso) as GameObject;
+                    cocinado = Instantiate(prefabSartenQuemada) as GameObject;
                 }
                 else
                 {
-                    cocinado = Instantiate(prefabPlatoBasePizzaTomate) as GameObject;
+                    cocinado = Instantiate(prefabPlatoBasePizzaTomateQueso) as GameObject;
                 }
                 product = false;
                 estat = "apagat";

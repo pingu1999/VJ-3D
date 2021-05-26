@@ -96,7 +96,6 @@ public class PlayerPick : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.E) && hasItem == true ) // if you have an item and get the key to remove the object, again can be any key
         {
-            
             PlayerMoviment.Recoger();
             ObjectIwantToPickUp.GetComponent<Rigidbody>().isKinematic = false; // make the rigidbody work again
 
