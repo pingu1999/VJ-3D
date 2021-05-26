@@ -78,6 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3329d249c9fc75446b6232ebc0977bdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefabSarten: {fileID: 7652902168299456506, guid: 249837c9e40d01a488a4734a8f1ab9f9, type: 3}
 --- !u!65 &747836238479415001
 BoxCollider:
   m_ObjectHideFlags: 0

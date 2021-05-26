@@ -14,8 +14,13 @@ public class ReceiptController : MonoBehaviour
     public GameObject recipe_6;
     public GameObject recipe_7;
 
+
+
     static public int scene_actual = -1;
     static private int scene_anterior = 0;
+
+
+
 
     public static List<string> get_recipes()
     {
@@ -43,7 +48,7 @@ public class ReceiptController : MonoBehaviour
 
 
 
- 
+
     void Update()
     {
         // GameObject[] recipe = new GameObject[] { recipe_1, recipe_2, recipe_3, recipe_4, recipe_5, recipe_6, recipe_7 };

@@ -19,7 +19,7 @@ public class SceneController : MonoBehaviour
         if (_carne == null)
         {
             Vector3 pos = this.transform.position;
-            pos.y += 15.0f; 
+            pos.y += 12.0f; 
             _carne = Instantiate(prefabCarne) as GameObject;
             _carne.transform.position = pos;
                

@@ -85,6 +85,7 @@ public class PlayerPick : MonoBehaviour
 
         if (canpickup == true && Input.GetKeyDown(KeyCode.E) && hasItem == false && ObjectIwantToPickUp != null)  // can be e or any key
         {
+            Debug.Log("postEspera");
             PlayerMoviment.Recoger();
             pos = myHands.transform.position;
             orientacio();
@@ -92,10 +93,12 @@ public class PlayerPick : MonoBehaviour
             ObjectIwantToPickUp.transform.position = pos; // sets the position of the object to your hand position
             ObjectIwantToPickUp.transform.parent = myHands.transform; //makes the object become a child of the parent so that it moves with the hands
             hasItem = true;
- 
+
         }
-        else if (Input.GetKeyDown(KeyCode.E) && hasItem == true ) // if you have an item and get the key to remove the object, again can be any key
+
+        else if (Input.GetKeyDown(KeyCode.E) && hasItem == true) // if you have an item and get the key to remove the object, again can be any key
         {
+            Debug.Log("dejar");
             PlayerMoviment.Recoger();
             ObjectIwantToPickUp.GetComponent<Rigidbody>().isKinematic = false; // make the rigidbody work again
 
@@ -105,19 +108,21 @@ public class PlayerPick : MonoBehaviour
             ObjectIwantToPickUp.transform.position = pos;
             hasItem = false;
         }
+
     }
     private void OnTriggerEnter(Collider other) // to see when the player enters the collider
     {
         
          if (other.gameObject.tag != "Untagged" && !hasItem && other.gameObject.tag != "Cuchillo" && other.gameObject.tag != "Player") //on the object you want to pick up set the tag to be anything, in this case "object"
-        {
+         {
+            Debug.Log("Contacto");
             canpickup = true;  //set the pick up bool to true
             ObjectIwantToPickUp = other.gameObject; //set the gameobject you collided with to one you can reference
-        }
+         }
+
     }
     private void OnTriggerExit(Collider other)
     {
         canpickup = false; //when you leave the collider set the canpickup bool to false
-
     }
 }

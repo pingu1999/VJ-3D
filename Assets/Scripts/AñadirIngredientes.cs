@@ -276,7 +276,7 @@ public class AñadirIngredientes : MonoBehaviour
 
 
 
-      else if (other.gameObject.tag != "Untagged"  && other.gameObject.tag != "Player" && other.transform.parent == null && other.gameObject.tag != "Plato" && other.gameObject.tag != "Sarten" && !PlayerPick.gethasItem())
+      else if (other.gameObject.tag != "Untagged"  && other.gameObject.tag != "Player" && other.transform.parent == null && other.gameObject.tag != "Plato" && other.gameObject.tag != "Sarten" && !PlayerPick.gethasItem() && transform.parent == null)
         {
             novalid = true;
             Object = other.gameObject;

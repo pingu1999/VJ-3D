@@ -35,7 +35,6 @@ public class Extentor : MonoBehaviour
             encencido = false;
             apagar = true;
         }
-        Debug.Log(enMano);
 
     }
 

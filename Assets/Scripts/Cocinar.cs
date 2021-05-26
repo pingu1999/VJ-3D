@@ -9,6 +9,7 @@ public class Cocinar : MonoBehaviour
     private float tiempo, tmp;
     private bool product, extraer, apagar;
     string input;
+    static bool godmode, acabar;
     [SerializeField] private GameObject prefabCarneCocinada;
     [SerializeField] private GameObject prefabCarne;
 
@@ -19,6 +20,18 @@ public class Cocinar : MonoBehaviour
 
     [SerializeField] private GameObject Player;
     Vector3 pos;
+
+
+    static public void change_acabar()
+    {
+        acabar = !acabar;
+    }
+
+    static public void change_godmode()
+    {
+        godmode = !godmode;
+    }
+
     void Start()
     {
         estat = "apagat";
@@ -26,7 +39,8 @@ public class Cocinar : MonoBehaviour
         product = false;
         extraer = false;
         myHands = Player.transform.Find("mixamorig:Hips").Find("mixamorig:Spine").gameObject;
-
+        godmode = false;
+        acabar = false;
     }
     public static string get_estat()
     {
@@ -35,15 +49,13 @@ public class Cocinar : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log(producte != null);
-        //Debug.Log(estat == "cocinando");
-        //Debug.Log(product);
+    
         if (producte != null && estat == "apagat" && product)
         {
             estat = "cocinando";
             transform.Find("ParticulasFuegoNormal").gameObject.SetActive(true);
         }
-        if (estat == "cocinando" && product && tiempo > 5.0f)
+        if ((acabar && product) || (estat == "cocinando" && product && tiempo > 5.0f))
         {
             
             Vector3 posicion = producte.transform.position;
@@ -64,7 +76,7 @@ public class Cocinar : MonoBehaviour
             producte.transform.parent = null;
             estat = "cocinado";
         }
-        if (estat == "cocinado" && product && tiempo > 7.5f)
+        if (!acabar && estat == "cocinado" && product && tiempo > 7.5f && !godmode)
         {
             Vector3 posicion = producte.transform.position;
             Quaternion rotation = producte.transform.rotation;
@@ -82,7 +94,7 @@ public class Cocinar : MonoBehaviour
             transform.Find("ParticulasFuegoQuemado").gameObject.SetActive(true);
             estat = "quemado";
         }
-        if (estat == "quemado" && product && apagar && Extentor.get_encendido())
+        if (!acabar && estat == "quemado" && product && apagar && Extentor.get_encendido())
         {
             transform.Find("ParticulasFuegoQuemado").gameObject.SetActive(false);
         }

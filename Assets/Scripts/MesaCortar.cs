@@ -13,6 +13,8 @@ public class MesaCortar : MonoBehaviour
     public GameObject player;
     GameObject sustituto;
 
+    static bool acabar;
+
 
     //prefabs
     [SerializeField] private GameObject prefabCarneCortada;
@@ -29,9 +31,15 @@ public class MesaCortar : MonoBehaviour
     {
         posicionar = false;
         ready = true;
+        acabar = false;
         myHands = player.transform.Find("mixamorig:Hips").Find("mixamorig:Spine").gameObject;
         Hand = player.transform.Find("mixamorig:Hips").Find("mixamorig:Spine").Find("mixamorig:Spine1").Find("mixamorig:Spine2").Find("mixamorig:RightShoulder").Find("mixamorig:RightArm").Find("mixamorig:RightForeArm").Find("mixamorig:RightHand").gameObject;
-}
+    }
+
+    static public void change_acabar()
+    {
+        acabar = !acabar;
+    }
 
     void setsustituto()
     {
@@ -87,9 +95,11 @@ public class MesaCortar : MonoBehaviour
     public IEnumerator accion(int seconds)
     {
         PlayerMoviment.Recoger();
-        yield return new WaitForSeconds((float)seconds);  // espera 3 segons
-        //Debug.Log(cuchillo.transform.position);
-        //Debug.Log(cuchillo.transform.rotation);
+        if (!acabar)
+        {
+            yield return new WaitForSeconds((float)seconds);  // espera 3 segons
+        }
+
 
         pos = myHands.transform.position;
         orientacio();
@@ -118,7 +128,6 @@ public class MesaCortar : MonoBehaviour
         cuchillo.transform.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 1.0f);
         cuchillo.transform.parent = null;
 
-        Debug.Log("3 segons despres");
         ready = true;
         ObjectIwantToPickUp = null;
         
