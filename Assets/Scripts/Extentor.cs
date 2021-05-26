@@ -21,6 +21,7 @@ public class Extentor : MonoBehaviour
     {
         if (enMano && apagar && Input.GetKeyDown(KeyCode.Q))
         {
+
             Debug.Log(transform.Find("Particulas"));
             encencido = true;
             transform.Find("Particulas").gameObject.SetActive(true);
@@ -34,14 +35,16 @@ public class Extentor : MonoBehaviour
             encencido = false;
             apagar = true;
         }
+        Debug.Log(enMano);
 
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player" && transform.parent != null && !PlayerPick.gethasItem())
+        if (other.gameObject.tag == "Player" && transform.parent != null)
 
         {
+
             Debug.Log("entra");
             apagar = true;
             enMano = true;
