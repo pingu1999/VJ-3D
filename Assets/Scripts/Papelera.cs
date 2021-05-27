@@ -90,7 +90,7 @@ public class Papelera : MonoBehaviour
     private void OnTriggerEnter(Collider other) 
     {
 
-        if (other.gameObject.tag != "Player" && other.transform.parent == null && other.gameObject.tag != "Extintor")  
+        if (other.gameObject.tag != "Player" && other.transform.parent == null && other.gameObject.tag != "Extintor" &&  other.gameObject.tag != "Untagged")  
         {
             eliminar = true;  
             Object = other.gameObject; 

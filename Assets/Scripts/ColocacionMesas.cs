@@ -38,7 +38,7 @@ public class ColocacionMesas : MonoBehaviour
     private void OnTriggerEnter(Collider other) // to see when the player enters the collider
     {
 
-        if (other.gameObject.tag != "Untagged" && other.gameObject.tag != "Player" && other.gameObject.tag != "Cuchillo" && other.gameObject.transform.parent != myHands.transform) //on the object you want to pick up set the tag to be anything, in this case "object"
+        if (other.gameObject.tag != "Untagged" && other.gameObject.tag != "Player" && other.gameObject.tag != "Cuchillo" && other.gameObject.tag != "Extintor" && other.gameObject.transform.parent != myHands.transform) //on the object you want to pick up set the tag to be anything, in this case "object"
         {
             posicionar = true;  
             ObjectIwantToPickUp = other.gameObject; //set the gameobject you collided with to one you can reference

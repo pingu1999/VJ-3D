@@ -27,6 +27,6 @@ public class Contador : MonoBehaviour
 
     void Update()
     {
-        contador.text = Cont.ToString();
+        contador.text = Cont.ToString() + "/7" ;
     }
 }

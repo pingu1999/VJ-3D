@@ -38,6 +38,13 @@ public class DisplayReceipts : MonoBehaviour
     public GameObject Player;
     GameObject myHands, next_receta;
     Vector3 pos;
+    private Color valor1 = new Color(0,0,0, 0.01f);
+    private Color valor2 = new Color(0, 0, 0, 0.01f);
+    private Color valor3 = new Color(0, 0, 0, 0.01f);
+    static string signo1;
+    static string signo2;
+    static string signo3;
+    private Color sh = new Color(0, 0, 0, 0.0025f);
 
     void orientacio()
     {
@@ -95,14 +102,17 @@ public class DisplayReceipts : MonoBehaviour
     }
     static public void start()
     {
-        ReceiptController.change_scene(1);
         i = 0;
         j = 1;
         k = 2;
-        tmp1 = 0;
-        tmp2 = 0;
-        tmp3 = 0;
+        tmp1 = 60;
+        tmp2 = 60;
+        tmp3 = 60;
         entregado = false;
+        signo1 = "+";
+        signo2 = "+";
+        signo3 = "+";
+
     }
 
     static public void Entregado()
@@ -117,21 +127,142 @@ public class DisplayReceipts : MonoBehaviour
 
     void Update()
     {
-        if (tmp1 > 40 || entregado)
+        if (tmp3 <= 0)
         {
+            ++k;
+            tmp3 = 60;
+            entregado = false;
+            Receipt3.GetComponentsInChildren<Image>()[0].color = new Color(1, 0, 0, 0);
+            Receipt3.GetComponentsInChildren<Image>()[3].color = new Color(1, 1, 1, 0);
+            //Barra3.gameObject.SetActive(false);
+        }
+        if (tmp2 <= 0)
+        {
+            Receipt2.GetComponentsInChildren<Image>()[0].color = Receipt3.GetComponentsInChildren<Image>()[0].color;
+            Receipt3.GetComponentsInChildren<Image>()[0].color = new Color(1, 0, 0, 0);
+            Receipt3.GetComponentsInChildren<Image>()[3].color = new Color(1, 1, 1, 0);
+            //Barra3.gameObject.SetActive(false);
+            j = k;
+            tmp2 = tmp3;
+            ++k;
+            tmp3 = 60;
+            entregado = false;
+        }
+        if (tmp1 <= 0 || entregado)
+        {
+            Receipt1.GetComponentsInChildren<Image>()[0].color = Receipt2.GetComponentsInChildren<Image>()[0].color;
+            Receipt2.GetComponentsInChildren<Image>()[0].color = Receipt3.GetComponentsInChildren<Image>()[0].color;
+            Receipt3.GetComponentsInChildren<Image>()[0].color = new Color(1, 0, 0, 0);
+            Receipt3.GetComponentsInChildren<Image>()[3].color = new Color(1, 1, 1, 0);
+            //Barra3.gameObject.SetActive(false);
+            Debug.Log(Barra3.value);
             i = j;
             tmp1 = tmp2;
             j = k;
             tmp2 = tmp3;
             ++k;
-            tmp3 = 0;
+            tmp3 = 60;
             entregado = false;
 
         }
 
-        tmp1 += 1 * Time.deltaTime;
-        tmp2 += 1 * Time.deltaTime;
-        tmp3 += 1 * Time.deltaTime;
+        //aparecer layout 
+        if (Receipt1.GetComponentsInChildren<Image>()[3].color.a < 1)
+        {
+           Receipt1.GetComponentsInChildren<Image>()[3].color += sh;
+            if (Receipt1.GetComponentsInChildren<Image>()[3].color.a >= 1)
+            {
+                //Barra1.gameObject.SetActive(true);
+                //tmp1 = 60;
+            }
+        }
+        if (Receipt2.GetComponentsInChildren<Image>()[3].color.a < 1)
+        {
+            Receipt2.GetComponentsInChildren<Image>()[3].color += sh;
+            if (Receipt2.GetComponentsInChildren<Image>()[3].color.a >= 1)
+            {
+                //Barra2.gameObject.SetActive(true);
+                //tmp2 = 60;
+            }
+        }
+        if (Receipt3.GetComponentsInChildren<Image>()[3].color.a < 1)
+        {
+            Receipt3.GetComponentsInChildren<Image>()[3].color += sh;
+            if (Receipt3.GetComponentsInChildren<Image>()[3].color.a >= 1) {
+                //Barra3.gameObject.SetActive(true);
+                //tmp3 = 60;
+            }
+        }
+
+        tmp1 -= 1 * Time.deltaTime;
+        tmp2 -= 1 * Time.deltaTime;
+        tmp3 -= 1 * Time.deltaTime;
+
+        //contorno del layout
+        if (tmp1 <= 15)
+        {
+            if (signo1 == "-")
+            {
+                Receipt1.GetComponentsInChildren<Image>()[0].color -= valor1;
+                valor1.a -= 25 / 255;
+                if (Receipt1.GetComponentsInChildren<Image>()[0].color.a <= 0 + 0.01f )
+                {
+                    signo1 = "+";
+                }
+            }
+            else
+            {
+                Receipt1.GetComponentsInChildren<Image>()[0].color += valor1;
+                valor1.a += 25 / 255;
+                if (Receipt1.GetComponentsInChildren<Image>()[0].color.a >= 1 - 0.01f)
+                {
+                    signo1 = "-";
+                }
+            }
+            
+        }
+        if (tmp2 <= 15)
+        {
+            if (signo2 == "-")
+            {
+                Receipt2.GetComponentsInChildren<Image>()[0].color -= valor2;
+                valor2.a -= 25 / 255;
+                if (Receipt2.GetComponentsInChildren<Image>()[0].color.a <= 0 + 0.01f)
+                {
+                    signo2 = "+";
+                }
+            }
+            else
+            {
+                Receipt2.GetComponentsInChildren<Image>()[0].color += valor2;
+                valor2.a += 25 / 255;
+                if (Receipt2.GetComponentsInChildren<Image>()[0].color.a >= 1 - 0.01f)
+                {
+                    signo2 = "-";
+                }
+            }
+        }
+        if (tmp3 <= 15)
+        {
+            if (signo3 == "-")
+            {
+                Receipt3.GetComponentsInChildren<Image>()[0].color -= valor3;
+                valor3.a -= 25 / 255;
+                if (Receipt3.GetComponentsInChildren<Image>()[0].color.a <= 0 + 0.01f)
+                {
+                    signo3 = "+";
+                }
+            }
+            else
+            {
+                Receipt3.GetComponentsInChildren<Image>()[0].color += valor3;
+                valor3.a += 25 / 255;
+                if (Receipt3.GetComponentsInChildren<Image>()[0].color.a >= 1 - 0.01f)
+                {
+                    signo3 = "-";
+                }
+            }
+        }
 
         Receipts = ReceiptController.get_recipes();
         nameReceta = Receipts[i];
@@ -199,7 +330,6 @@ public class DisplayReceipts : MonoBehaviour
         }
 
 
-        Debug.Log(SceneManager.GetActiveScene().name);
         if (Receipts != null && Receipts[k] == "PlatoLechuga")
         {
             Receipt3.GetComponentsInChildren<Image>()[3].sprite = EnsaladaSimple;
@@ -234,9 +364,8 @@ public class DisplayReceipts : MonoBehaviour
 
         if (next_receta == null && Input.GetKeyDown(KeyCode.P) && !PlayerPick.gethasItem())
         {
-            Debug.Log(Receipt1.GetComponentsInChildren<Image>()[2].sprite.name);
             myHands = Player.transform.Find("mixamorig:Hips").Find("mixamorig:Spine").gameObject;
-            if (Receipt1.GetComponentsInChildren<Image>()[2].sprite.name == "EnsaladaSimple")
+            if (Receipt1.GetComponentsInChildren<Image>()[3].sprite.name == "EnsaladaSimple")
             {
                 next_receta = Instantiate(prefabPlatoLechuga) as GameObject;
                 PlayerMoviment.Recoger();
@@ -249,7 +378,7 @@ public class DisplayReceipts : MonoBehaviour
                 PlayerPick.sethasItem(true);
                 PlayerPick.sethObjectIwantToPickUp(next_receta);
             }
-            else if (Receipt1.GetComponentsInChildren<Image>()[2].sprite.name == "EnsaladaCompleta")
+            else if (Receipt1.GetComponentsInChildren<Image>()[3].sprite.name == "EnsaladaCompleta")
             {
                 next_receta = Instantiate(prefabEnsaladaTomate) as GameObject;
                 PlayerMoviment.Recoger();
@@ -262,7 +391,7 @@ public class DisplayReceipts : MonoBehaviour
                 PlayerPick.sethasItem(true);
                 PlayerPick.sethObjectIwantToPickUp(next_receta);
             }
-            else if (Receipt1.GetComponentsInChildren<Image>()[2].sprite.name == "PizzaSimple")
+            else if (Receipt1.GetComponentsInChildren<Image>()[3].sprite.name == "PizzaSimple")
             {
                 next_receta = Instantiate(prefabPizzaSimple) as GameObject;
                 PlayerMoviment.Recoger();
@@ -275,7 +404,7 @@ public class DisplayReceipts : MonoBehaviour
                 PlayerPick.sethasItem(true);
                 PlayerPick.sethObjectIwantToPickUp(next_receta);
             }
-            else if (Receipt1.GetComponentsInChildren<Image>()[2].sprite.name == "PizzaQueso")
+            else if (Receipt1.GetComponentsInChildren<Image>()[3].sprite.name == "PizzaQueso")
             {
                 next_receta = Instantiate(prefabPizzaQueso) as GameObject;
                 PlayerMoviment.Recoger();
@@ -288,7 +417,7 @@ public class DisplayReceipts : MonoBehaviour
                 PlayerPick.sethasItem(true);
                 PlayerPick.sethObjectIwantToPickUp(next_receta);
             }
-            else if (Receipt1.GetComponentsInChildren<Image>()[2].sprite.name == "HamburguesaSimple")
+            else if (Receipt1.GetComponentsInChildren<Image>()[3].sprite.name == "HamburguesaSimple")
             {
                 next_receta = Instantiate(prefabHamburguesaSimple) as GameObject;
                 PlayerMoviment.Recoger();
@@ -301,7 +430,7 @@ public class DisplayReceipts : MonoBehaviour
                 PlayerPick.sethasItem(true);
                 PlayerPick.sethObjectIwantToPickUp(next_receta);
             }
-            else if (Receipt1.GetComponentsInChildren<Image>()[2].sprite.name == "HamburguesaCompleta")
+            else if (Receipt1.GetComponentsInChildren<Image>()[3].sprite.name == "HamburguesaCompleta")
             {
                 next_receta = Instantiate(prefabHamburguesaLechugaTomate) as GameObject;
                 PlayerMoviment.Recoger();
@@ -314,7 +443,7 @@ public class DisplayReceipts : MonoBehaviour
                 PlayerPick.sethasItem(true);
                 PlayerPick.sethObjectIwantToPickUp(next_receta);
             }
-            else if (Receipt1.GetComponentsInChildren<Image>()[2].sprite.name == "Paella")
+            else if (Receipt1.GetComponentsInChildren<Image>()[3].sprite.name == "Paella")
             {
                 next_receta = Instantiate(prefabPaella) as GameObject;
                 PlayerMoviment.Recoger();
@@ -345,27 +474,22 @@ public class DisplayReceipts : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            ReceiptController.change_scene(1);
             SceneManager.LoadScene(1);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            ReceiptController.change_scene(2);
             SceneManager.LoadScene(2);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            ReceiptController.change_scene(3);
             SceneManager.LoadScene(3);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            ReceiptController.change_scene(4);
             SceneManager.LoadScene(4);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            ReceiptController.change_scene(5);
             SceneManager.LoadScene(5);
         }
 
