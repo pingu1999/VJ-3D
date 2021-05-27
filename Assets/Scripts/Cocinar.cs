@@ -74,6 +74,9 @@ public class Cocinar : MonoBehaviour
             producte.transform.position = posicion; 
             producte.transform.rotation = rotation;
             producte.transform.parent = null;
+
+            transform.Find("ParticulasFuegoNormal").gameObject.SetActive(false);
+            transform.Find("ParticulasFuegoCasi").gameObject.SetActive(true);
             estat = "cocinado";
         }
         if (!acabar && estat == "cocinado" && product && tiempo > 7.5f && !godmode)
@@ -90,7 +93,7 @@ public class Cocinar : MonoBehaviour
             producte.transform.parent = null;
 
 
-            transform.Find("ParticulasFuegoNormal").gameObject.SetActive(false);
+            transform.Find("ParticulasFuegoCasi").gameObject.SetActive(false);
             transform.Find("ParticulasFuegoQuemado").gameObject.SetActive(true);
             estat = "quemado";
         }
