@@ -53,13 +53,17 @@ public class ReceiptController : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(SceneManager.GetActiveScene().name);
+        //Debug.Log(SceneManager.GetActiveScene().name);
         // GameObject[] recipe = new GameObject[] { recipe_1, recipe_2, recipe_3, recipe_4, recipe_5, recipe_6, recipe_7 };
         // Debug.Log(scene_actual);
         if (scene_actual == 1 && scene_actual != scene_anterior)
         {
+<<<<<<< HEAD
             
             layout.gameObject.SetActive(true);
+=======
+            //layout.gameObject.SetActive(true);
+>>>>>>> 5d8e646b6ca6954382006c325a57acb01357cc15
             GameObject[] recipe = new GameObject[] { recipe_1, recipe_2 };
             recipes.Clear();
             for (int i = 0; i < 20; ++i)
@@ -71,7 +75,7 @@ public class ReceiptController : MonoBehaviour
 
         else if (scene_actual == 2 && scene_actual != scene_anterior)
         {
-            Debug.Log("2n level");
+            //Debug.Log("2n level");
             GameObject[] recipe = new GameObject[] { recipe_1, recipe_2, recipe_3, recipe_4 };
             recipes.Clear();
             for (int i = 0; i < 20; ++i)
