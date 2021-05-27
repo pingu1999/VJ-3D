@@ -99,7 +99,7 @@ public class Cocinar : MonoBehaviour
             transform.Find("ParticulasFuegoQuemado").gameObject.SetActive(false);
         }
 
-        if (extraer && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyUp(KeyCode.E)))
+        if (extraer && Input.GetKeyDown(KeyCode.E))
         {
             
             extraer = false;
@@ -200,6 +200,7 @@ public class Cocinar : MonoBehaviour
         if (other.gameObject.tag == "Extintor")
         {
             apagar = true;
+            Debug.Log("recoger");
         }
 
     }

@@ -74,7 +74,7 @@ public class Hornear : MonoBehaviour
             transform.Find("ParticulasHornoQuemado").gameObject.SetActive(false);
         }
 
-        if (extraer && Input.GetKeyDown(KeyCode.E))
+        if (product && extraer && Input.GetKeyDown(KeyCode.E))
         {
             extraer = false;
             transform.Find("ParticulasHornoCocinado").gameObject.SetActive(false);
@@ -103,8 +103,9 @@ public class Hornear : MonoBehaviour
 
                 orientacio();
                 cocinado.GetComponent<Rigidbody>().isKinematic = true;
-                cocinado.transform.position = pos;
                 cocinado.transform.parent = myHands.transform;
+                cocinado.transform.position = pos;
+                
                 
                 PlayerPick.sethObjectIwantToPickUp(cocinado);
             }
@@ -132,14 +133,15 @@ public class Hornear : MonoBehaviour
 
                 orientacio();
                 cocinado.GetComponent<Rigidbody>().isKinematic = true;
-                cocinado.transform.position = pos;
                 cocinado.transform.parent = myHands.transform;
+                cocinado.transform.position = pos;
+                
                
                 PlayerPick.sethObjectIwantToPickUp(cocinado);
             }
 
             PlayerPick.sethasItem(true);
-
+            Debug.Log(PlayerPick.gethasItem());
         }
 
         //contador de segundos
@@ -212,6 +214,7 @@ public class Hornear : MonoBehaviour
         if (other.gameObject.tag == "Player" && !PlayerPick.gethasItem())
         {
             extraer = true;
+            Debug.Log("recoger");
         }
 
         if (other.gameObject.tag == "Extintor")

@@ -85,7 +85,7 @@ public class PlayerPick : MonoBehaviour
 
         if (canpickup == true && Input.GetKeyDown(KeyCode.E) && hasItem == false && ObjectIwantToPickUp != null)  // can be e or any key
         {
-            Debug.Log("postEspera");
+            Debug.Log("recoger");
             PlayerMoviment.Recoger();
             pos = myHands.transform.position;
             orientacio();

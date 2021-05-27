@@ -234,40 +234,39 @@ public class AñadirIngredientes : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-      if (other.gameObject.tag == "LechugaCortada" && other.transform.parent == null)
+      if (other.gameObject.tag == "LechugaCortada" && other.transform.parent == null && transform.parent == null)
       {
             lechuga = true;
             Object = other.gameObject;
       }
-
-      else if (other.gameObject.tag == "TomateCortado" && other.transform.parent == null)
+      else if (other.gameObject.tag == "TomateCortado" && other.transform.parent == null && transform.parent == null)
        {
             tomate = true;
             Object = other.gameObject;
 
        }
-      else if (other.gameObject.tag == "SartenCarneHecha" && other.transform.parent == null)
+      else if (other.gameObject.tag == "SartenCarneHecha" && other.transform.parent == null && transform.parent == null)
        { 
             carne = true;
             Object = other.gameObject;
 
        }
-      else if (other.gameObject.tag == "BaseDePizzaCortada" && other.transform.parent == null)
+      else if (other.gameObject.tag == "PizzaCortada" && other.transform.parent == null && transform.parent == null)
        {
             pizza = true;
             Object = other.gameObject;
        }
-      else if (other.gameObject.tag == "QuesoCortado" && other.transform.parent == null)
+      else if (other.gameObject.tag == "QuesoCortado" && other.transform.parent == null && transform.parent == null)
        {
             queso = true;
             Object = other.gameObject;
        }
-      else if (other.gameObject.tag == "PanCortado" && other.transform.parent == null)
+      else if (other.gameObject.tag == "PanCortado" && other.transform.parent == null && transform.parent == null)
        {
             pan = true;
             Object = other.gameObject;
        }
-      else if (other.gameObject.tag == "SartenArrozTomateCarneCebollaGambasCocinado" && other.transform.parent == null)
+      else if (other.gameObject.tag == "SartenArrozTomateCarneCebollaGambasCocinado" && other.transform.parent == null && transform.parent == null)
        {
             paella = true;
             Object = other.gameObject;
