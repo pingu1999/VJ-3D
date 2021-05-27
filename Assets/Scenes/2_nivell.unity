@@ -1063,6 +1063,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4723433151742979979, guid: 443250aaf0293af41a97e3e44c1d1f2e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5686524624161173166, guid: 443250aaf0293af41a97e3e44c1d1f2e, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6788212203143232024, guid: 443250aaf0293af41a97e3e44c1d1f2e, type: 3}
       propertyPath: m_Name
       value: Horno
@@ -1123,6 +1131,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7665750308244620681, guid: 443250aaf0293af41a97e3e44c1d1f2e, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1522818856}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 443250aaf0293af41a97e3e44c1d1f2e, type: 3}
 --- !u!1 &630144865

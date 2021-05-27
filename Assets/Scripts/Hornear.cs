@@ -53,23 +53,23 @@ public class Hornear : MonoBehaviour
             Debug.Log("cocinando");
             Destroy(producte);
             estat = "cocinando";
+            Debug.Log(transform.Find("ParticulasHornoCocinado"));
             transform.Find("ParticulasHornoCocinado").gameObject.SetActive(true);
         }
         if (acabar || (estat == "cocinando" && product && tiempo > 8.0f))
         {
             Debug.Log("cocinado");
+            transform.Find("ParticulasHornoCasi").gameObject.SetActive(true);
             if (producte != null)
             {
                 Destroy(producte);
-                transform.Find("ParticulasHornoCocinado").gameObject.SetActive(false);
-                transform.Find("ParticulasHornoCasi").gameObject.SetActive(true);
             }
             estat = "cocinado";
         }
         if (estat == "cocinado" && product && tiempo > 15.0f && !godmode)
         {
             Debug.Log("Se quema");
-            transform.Find("ParticulasHornoCasi").gameObject.SetActive(false);
+            transform.Find("ParticulasHornoCocinado").gameObject.SetActive(false);
             transform.Find("ParticulasHornoQuemado").gameObject.SetActive(true);
             estat = "quemado";
         }
@@ -89,6 +89,7 @@ public class Hornear : MonoBehaviour
             extraer = false;
             transform.Find("ParticulasHornoCocinado").gameObject.SetActive(false);
             transform.Find("ParticulasHornoQuemado").gameObject.SetActive(false);
+            transform.Find("ParticulasHornoCasi").gameObject.SetActive(false);
             if (input == "PlatoBasePizzaTomate")
             {
                 if (estat == "cocinado")
