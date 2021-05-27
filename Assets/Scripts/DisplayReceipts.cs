@@ -344,27 +344,27 @@ public class DisplayReceipts : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            ReceiptController.change_scene(0);
+            ReceiptController.change_scene(1);
             SceneManager.LoadScene(1);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            ReceiptController.change_scene(1);
+            ReceiptController.change_scene(2);
             SceneManager.LoadScene(2);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            ReceiptController.change_scene(2);
+            ReceiptController.change_scene(3);
             SceneManager.LoadScene(3);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            ReceiptController.change_scene(3);
+            ReceiptController.change_scene(4);
             SceneManager.LoadScene(4);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            ReceiptController.change_scene(4);
+            ReceiptController.change_scene(5);
             SceneManager.LoadScene(5);
         }
 
