@@ -65,7 +65,7 @@ public class PlayerMoviment : MonoBehaviour
         
         else if (moveDirection != Vector3.zero)
         {
-            layout.gameObject.SetActive(true);
+            
             walk();
             player.transform.Find("ParticulasPlayer").gameObject.SetActive(true);
         }

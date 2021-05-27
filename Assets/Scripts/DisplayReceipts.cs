@@ -95,7 +95,7 @@ public class DisplayReceipts : MonoBehaviour
     }
     static public void start()
     {
-        ReceiptController.change_scene(-1);
+        ReceiptController.change_scene(1);
         i = 0;
         j = 1;
         k = 2;
@@ -141,92 +141,92 @@ public class DisplayReceipts : MonoBehaviour
 
         if (Receipts != null && Receipts[i] == "PlatoLechuga")
         {
-            Receipt1.GetComponentsInChildren<Image>()[2].sprite = EnsaladaSimple;
+            Receipt1.GetComponentsInChildren<Image>()[3].sprite = EnsaladaSimple;
         }
         else if (Receipts != null && Receipts[i] == "EnsaladaTomate")
         {
-            Receipt1.GetComponentsInChildren<Image>()[2].sprite = EnsaladaCompleta;
+            Receipt1.GetComponentsInChildren<Image>()[3].sprite = EnsaladaCompleta;
         }
         else if (Receipts != null && Receipts[i] == "PizzaSimple")
         {
-            Receipt1.GetComponentsInChildren<Image>()[2].sprite = PizzaSimple;
+            Receipt1.GetComponentsInChildren<Image>()[3].sprite = PizzaSimple;
         }
         else if (Receipts != null && Receipts[i] == "PizzaQueso")
         {
-            Receipt1.GetComponentsInChildren<Image>()[2].sprite = PizzaCompleta;
+            Receipt1.GetComponentsInChildren<Image>()[3].sprite = PizzaCompleta;
         }
         else if (Receipts != null && Receipts[i] == "HamburguesaSimple")
         {
-            Receipt1.GetComponentsInChildren<Image>()[2].sprite = HamburguesaSimple;
+            Receipt1.GetComponentsInChildren<Image>()[3].sprite = HamburguesaSimple;
         }
         else if (Receipts != null && Receipts[i] == "HamburguesaLechugaTomate")
         {
-            Receipt1.GetComponentsInChildren<Image>()[2].sprite = HamburguesaCompleta;
+            Receipt1.GetComponentsInChildren<Image>()[3].sprite = HamburguesaCompleta;
         }
         else if (Receipts != null && Receipts[i] == "Paella")
         {
-            Receipt1.GetComponentsInChildren<Image>()[2].sprite = Paella;
+            Receipt1.GetComponentsInChildren<Image>()[3].sprite = Paella;
         }
 
 
         if (Receipts != null && Receipts[j] == "PlatoLechuga")
         {
-            Receipt2.GetComponentsInChildren<Image>()[2].sprite = EnsaladaSimple;
+            Receipt2.GetComponentsInChildren<Image>()[3].sprite = EnsaladaSimple;
         }
         else if (Receipts != null && Receipts[j] == "EnsaladaTomate")
         {
-            Receipt2.GetComponentsInChildren<Image>()[2].sprite = EnsaladaCompleta;
+            Receipt2.GetComponentsInChildren<Image>()[3].sprite = EnsaladaCompleta;
         }
         else if (Receipts != null && Receipts[j] == "PizzaSimple")
         {
-            Receipt2.GetComponentsInChildren<Image>()[2].sprite = PizzaSimple;
+            Receipt2.GetComponentsInChildren<Image>()[3].sprite = PizzaSimple;
         }
         else if (Receipts != null && Receipts[j] == "PizzaQueso")
         {
-            Receipt2.GetComponentsInChildren<Image>()[2].sprite = PizzaCompleta;
+            Receipt2.GetComponentsInChildren<Image>()[3].sprite = PizzaCompleta;
         }
         else if (Receipts != null && Receipts[j] == "HamburguesaSimple")
         {
-            Receipt2.GetComponentsInChildren<Image>()[2].sprite = HamburguesaSimple;
+            Receipt2.GetComponentsInChildren<Image>()[3].sprite = HamburguesaSimple;
         }
         else if (Receipts != null && Receipts[j] == "HamburguesaLechugaTomate")
         {
-            Receipt2.GetComponentsInChildren<Image>()[2].sprite = HamburguesaCompleta;
+            Receipt2.GetComponentsInChildren<Image>()[3].sprite = HamburguesaCompleta;
         }
         else if (Receipts != null && Receipts[j] == "Paella")
         {
-            Receipt2.GetComponentsInChildren<Image>()[2].sprite = Paella;
+            Receipt2.GetComponentsInChildren<Image>()[3].sprite = Paella;
         }
 
 
-
+        Debug.Log(SceneManager.GetActiveScene().name);
         if (Receipts != null && Receipts[k] == "PlatoLechuga")
         {
-            Receipt3.GetComponentsInChildren<Image>()[2].sprite = EnsaladaSimple;
+            Receipt3.GetComponentsInChildren<Image>()[3].sprite = EnsaladaSimple;
         }
         else if (Receipts != null && Receipts[k] == "EnsaladaTomate")
         {
-            Receipt3.GetComponentsInChildren<Image>()[2].sprite = EnsaladaCompleta;
+            Receipt3.GetComponentsInChildren<Image>()[3].sprite = EnsaladaCompleta;
         }
         else if (Receipts != null && Receipts[k] == "PizzaSimple")
         {
-            Receipt3.GetComponentsInChildren<Image>()[2].sprite = PizzaSimple;
+            Receipt3.GetComponentsInChildren<Image>()[3].sprite = PizzaSimple;
         }
         else if (Receipts != null && Receipts[k] == "PizzaQueso")
         {
-            Receipt3.GetComponentsInChildren<Image>()[2].sprite = PizzaCompleta;
+            Receipt3.GetComponentsInChildren<Image>()[3].sprite = PizzaCompleta;
         }
         else if (Receipts != null && Receipts[k] == "HamburguesaSimple")
         {
-            Receipt3.GetComponentsInChildren<Image>()[2].sprite = HamburguesaSimple;
+            Receipt3.GetComponentsInChildren<Image>()[3].sprite = HamburguesaSimple;
         }
         else if (Receipts != null && Receipts[k] == "HamburguesaLechugaTomate")
         {
-            Receipt3.GetComponentsInChildren<Image>()[2].sprite = HamburguesaCompleta;
+            Receipt3.GetComponentsInChildren<Image>()[3].sprite = HamburguesaCompleta;
         }
         else if (Receipts != null && Receipts[k] == "Paella")
         {
-            Receipt3.GetComponentsInChildren<Image>()[2].sprite = Paella;
+            Receipt3.GetComponentsInChildren<Image>()[3].sprite = Paella;
         }
 
 
@@ -234,6 +234,7 @@ public class DisplayReceipts : MonoBehaviour
 
         if (next_receta == null && Input.GetKeyDown(KeyCode.P) && !PlayerPick.gethasItem())
         {
+            Debug.Log(Receipt1.GetComponentsInChildren<Image>()[2].sprite.name);
             myHands = Player.transform.Find("mixamorig:Hips").Find("mixamorig:Spine").gameObject;
             if (Receipt1.GetComponentsInChildren<Image>()[2].sprite.name == "EnsaladaSimple")
             {

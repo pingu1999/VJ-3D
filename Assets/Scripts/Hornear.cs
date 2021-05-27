@@ -50,12 +50,14 @@ public class Hornear : MonoBehaviour
         
         if (!acabar && producte != null && estat == "apagat" && product)
         {
+            Debug.Log("cocinando");
             Destroy(producte);
             estat = "cocinando";
             transform.Find("ParticulasHornoCocinado").gameObject.SetActive(true);
         }
         if (acabar || (estat == "cocinando" && product && tiempo > 5.0f))
         {
+            Debug.Log("cocinado");
             if (producte != null)
             {
                 Destroy(producte);
@@ -65,17 +67,22 @@ public class Hornear : MonoBehaviour
         }
         if (estat == "cocinado" && product && tiempo > 7.5f && !godmode)
         {
-            transform.Find("ParticulasHornoCocinado").gameObject.SetActive(false);
+            Debug.Log("Se quema");
+            transform.Find("ParticulasHornoCocinado").gameObject.SetActive(true);
             transform.Find("ParticulasHornoQuemado").gameObject.SetActive(true);
             estat = "quemado";
         }
         if (estat == "quemado" && product && apagar && Extentor.get_encendido())
         {
+            Debug.Log("apaga fuego");
             transform.Find("ParticulasHornoQuemado").gameObject.SetActive(false);
         }
 
-        if (product && extraer && Input.GetKeyDown(KeyCode.E))
+        if (product && extraer && Input.GetKeyUp(KeyCode.E))
         {
+            Debug.Log("recoger");
+            product = false;
+            tiempo = 0;
             extraer = false;
             transform.Find("ParticulasHornoCocinado").gameObject.SetActive(false);
             transform.Find("ParticulasHornoQuemado").gameObject.SetActive(false);
@@ -94,19 +101,16 @@ public class Hornear : MonoBehaviour
                 {
                     cocinado = Instantiate(prefabPlatoBasePizzaTomate) as GameObject;
                 }
-                product = false;
-                estat = "apagat";
-                tiempo = 0;
-                extraer = false;
+
                 PlayerMoviment.Recoger();
                 pos = myHands.transform.position;
-
+                estat = "apagat";
                 orientacio();
                 cocinado.GetComponent<Rigidbody>().isKinematic = true;
-                cocinado.transform.parent = myHands.transform;
                 cocinado.transform.position = pos;
-                
-                
+                cocinado.transform.parent = myHands.transform;
+
+
                 PlayerPick.sethObjectIwantToPickUp(cocinado);
             }
 
@@ -124,10 +128,7 @@ public class Hornear : MonoBehaviour
                 {
                     cocinado = Instantiate(prefabPlatoBasePizzaTomateQueso) as GameObject;
                 }
-                product = false;
                 estat = "apagat";
-                tiempo = 0;
-                extraer = false;
                 PlayerMoviment.Recoger();
                 pos = myHands.transform.position;
 
@@ -214,7 +215,6 @@ public class Hornear : MonoBehaviour
         if (other.gameObject.tag == "Player" && !PlayerPick.gethasItem())
         {
             extraer = true;
-            Debug.Log("recoger");
         }
 
         if (other.gameObject.tag == "Extintor")

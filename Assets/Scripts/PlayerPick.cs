@@ -115,7 +115,6 @@ public class PlayerPick : MonoBehaviour
         
          if (other.gameObject.tag != "Untagged" && !hasItem && other.gameObject.tag != "Cuchillo" && other.gameObject.tag != "Player") //on the object you want to pick up set the tag to be anything, in this case "object"
          {
-            Debug.Log("Contacto");
             canpickup = true;  //set the pick up bool to true
             ObjectIwantToPickUp = other.gameObject; //set the gameobject you collided with to one you can reference
          }

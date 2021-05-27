@@ -67,7 +67,7 @@ public class Papelera : MonoBehaviour
     {
         if(eliminar)
         {
-            if (Object.tag == "Sarten" || Object.tag == "SartenArroz" || Object.tag == "SartenArrozTomate" || Object.tag == "SartenArrozTomateCarne" || Object.tag == "SartenArrozTomateCarneCebolla" || Object.tag == "SartenArrozTomateCarneCebollaGambas" || Object.tag == "SartenArrozTomateCarneCebollaGambasCocinado" || Object.tag == "SartenCarne" || Object.tag == "SartenCarneHecha")
+            if (Object.tag == "Sarten" || Object.tag == "SartenArroz" || Object.tag == "SartenArrozTomate" || Object.tag == "SartenArrozTomateCarne" || Object.tag == "SartenArrozTomateCarneCebolla" || Object.tag == "SartenArrozTomateCarneCebollaGambas" || Object.tag == "SartenArrozTomateCarneCebollaGambasCocinado" || Object.tag == "SartenCarne" || Object.tag == "SartenCarneHecha" || Object.tag == "SartenQuemada")
             {
                 Destroy(Object);
                 pos = myHands.transform.position; 

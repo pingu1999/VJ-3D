@@ -101,7 +101,7 @@ public class Cocinar : MonoBehaviour
 
         if (extraer && Input.GetKeyDown(KeyCode.E))
         {
-            
+            Debug.Log("extraer");   
             extraer = false;
             transform.Find("ParticulasFuegoNormal").gameObject.SetActive(false);
             transform.Find("ParticulasFuegoQuemado").gameObject.SetActive(false);
