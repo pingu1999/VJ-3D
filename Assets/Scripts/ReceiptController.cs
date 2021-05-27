@@ -58,6 +58,7 @@ public class ReceiptController : MonoBehaviour
         // Debug.Log(scene_actual);
         if (scene_actual == 1 && scene_actual != scene_anterior)
         {
+            
             layout.gameObject.SetActive(true);
             GameObject[] recipe = new GameObject[] { recipe_1, recipe_2 };
             recipes.Clear();
