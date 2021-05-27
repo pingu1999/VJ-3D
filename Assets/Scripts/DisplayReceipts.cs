@@ -95,7 +95,7 @@ public class DisplayReceipts : MonoBehaviour
     }
     static public void start()
     {
-        ReceiptController.change_scene();
+        ReceiptController.change_scene(-1);
         i = 0;
         j = 1;
         k = 2;
@@ -344,27 +344,27 @@ public class DisplayReceipts : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            Debug.Log(1);
+            ReceiptController.change_scene(0);
             SceneManager.LoadScene(1);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            Debug.Log(2);
+            ReceiptController.change_scene(1);
             SceneManager.LoadScene(2);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            Debug.Log(3);
+            ReceiptController.change_scene(2);
             SceneManager.LoadScene(3);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            Debug.Log(4);
+            ReceiptController.change_scene(3);
             SceneManager.LoadScene(4);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            Debug.Log(5);
+            ReceiptController.change_scene(4);
             SceneManager.LoadScene(5);
         }
 

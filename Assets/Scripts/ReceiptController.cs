@@ -41,9 +41,12 @@ public class ReceiptController : MonoBehaviour
         }
     }
 
-    public static int change_scene()
+    public static int change_scene(int i)
     {
-        return scene_actual += 1;
+        if (i < 0)
+            return scene_actual += 1;
+        else
+            return scene_actual = i;
     }
 
 
