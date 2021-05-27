@@ -239,6 +239,10 @@ public class AñadirIngredientes : MonoBehaviour
             lechuga = true;
             Object = other.gameObject;
       }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0b8c7da841eb9944783113ae6a57eb1a3c1b8271
       else if (other.gameObject.tag == "TomateCortado" && other.transform.parent == null && transform.parent == null)
        {
             tomate = true;
