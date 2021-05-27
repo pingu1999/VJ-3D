@@ -55,20 +55,21 @@ public class Hornear : MonoBehaviour
             estat = "cocinando";
             transform.Find("ParticulasHornoCocinado").gameObject.SetActive(true);
         }
-        if (acabar || (estat == "cocinando" && product && tiempo > 5.0f))
+        if (acabar || (estat == "cocinando" && product && tiempo > 8.0f))
         {
             Debug.Log("cocinado");
             if (producte != null)
             {
                 Destroy(producte);
-                transform.Find("ParticulasHornoCocinado").gameObject.SetActive(true);
+                transform.Find("ParticulasHornoCocinado").gameObject.SetActive(false);
+                transform.Find("ParticulasHornoCasi").gameObject.SetActive(true);
             }
             estat = "cocinado";
         }
-        if (estat == "cocinado" && product && tiempo > 7.5f && !godmode)
+        if (estat == "cocinado" && product && tiempo > 15.0f && !godmode)
         {
             Debug.Log("Se quema");
-            transform.Find("ParticulasHornoCocinado").gameObject.SetActive(true);
+            transform.Find("ParticulasHornoCasi").gameObject.SetActive(false);
             transform.Find("ParticulasHornoQuemado").gameObject.SetActive(true);
             estat = "quemado";
         }
@@ -76,6 +77,8 @@ public class Hornear : MonoBehaviour
         {
             Debug.Log("apaga fuego");
             transform.Find("ParticulasHornoQuemado").gameObject.SetActive(false);
+            transform.Find("ParticulasHornoCocinado").gameObject.SetActive(false);
+            transform.Find("ParticulasHornoCasi").gameObject.SetActive(false);
         }
 
         if (product && extraer && Input.GetKeyUp(KeyCode.E))
