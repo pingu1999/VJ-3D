@@ -51,15 +51,12 @@ public class Hornear : MonoBehaviour
         
         if (!acabar && producte != null && estat == "apagat" && product)
         {
-            Debug.Log("cocinando");
             Destroy(producte);
             estat = "cocinando";
-            Debug.Log(transform.Find("ParticulasHornoCocinado"));
             transform.Find("ParticulasHornoCocinado").gameObject.SetActive(true);
         }
         if (acabar || (estat == "cocinando" && product && tiempo > 8.0f))
         {
-            Debug.Log("cocinado");
             transform.Find("ParticulasHornoCasi").gameObject.SetActive(true);
             if (producte != null)
             {
@@ -69,7 +66,7 @@ public class Hornear : MonoBehaviour
         }
         if (estat == "cocinado" && product && tiempo > 15.0f && !godmode)
         {
-            Debug.Log("Se quema");
+            Debug.Log("cocinado a quemado");
             transform.Find("ParticulasHornoCocinado").gameObject.SetActive(false);
             transform.Find("ParticulasHornoQuemado").gameObject.SetActive(true);
             estat = "quemado";
@@ -81,12 +78,62 @@ public class Hornear : MonoBehaviour
             transform.Find("ParticulasHornoCocinado").gameObject.SetActive(false);
             transform.Find("ParticulasHornoCasi").gameObject.SetActive(false);
             estat = "apagat_qu";
+            if (input == "PlatoBasePizzaTomate")
+            {
+                if (estat == "cocinado")
+                {
+                    cocinado = Instantiate(prefabPizzaSimple) as GameObject;
+                }
+
+                else if (estat == "apagat_qu")
+                {
+                    Debug.Log("Quemado");
+                    cocinado = Instantiate(prefabSartenQuemada) as GameObject;
+                }
+                else
+                {
+                    cocinado = Instantiate(prefabPlatoBasePizzaTomate) as GameObject;
+                }
+
+                
+                pos = myHands.transform.position;
+                orientacio();
+                cocinado.GetComponent<Rigidbody>().isKinematic = true;
+                cocinado.transform.position = transform.position;
+            }
+
+            else if (input == "PlatoBasePizzaTomateQueso")
+            {
+                if (estat == "cocinado")
+                {
+                    cocinado = Instantiate(prefabPizzaCompleta) as GameObject;
+                }
+                else if (estat == "apagat_qu")
+                {
+                    cocinado = Instantiate(prefabSartenQuemada) as GameObject;
+                }
+                else
+                {
+                    cocinado = Instantiate(prefabPlatoBasePizzaTomateQueso) as GameObject;
+                }
+
+                pos = myHands.transform.position;
+
+                orientacio();
+                cocinado.GetComponent<Rigidbody>().isKinematic = true;
+
+                cocinado.transform.position = transform.position;
+            }
         }
+        Debug.Log(product);
+        Debug.Log(extraer);
+        Debug.Log(Input.GetKeyUp(KeyCode.E));
 
         if (product && extraer && Input.GetKeyUp(KeyCode.E) && estat != "quemado")
         {
             song.mute = true;
             Debug.Log("recoger");
+            apagar = false;
             product = false;
             tiempo = 0;
             extraer = false;
@@ -144,10 +191,11 @@ public class Hornear : MonoBehaviour
                 cocinado.GetComponent<Rigidbody>().isKinematic = true;
                 cocinado.transform.parent = myHands.transform;
                 cocinado.transform.position = pos;
-                
-               
+
+
                 PlayerPick.sethObjectIwantToPickUp(cocinado);
             }
+            else Debug.Log("Tonto");
 
             PlayerPick.sethasItem(true);
             Debug.Log(PlayerPick.gethasItem());
@@ -215,7 +263,7 @@ public class Hornear : MonoBehaviour
         {
             producte = other.gameObject;
             product = true;
-            input = other.name;
+            input = other.tag;
             tiempo = 0f;
             song.mute = false;
         }
