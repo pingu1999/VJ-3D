@@ -6,6 +6,7 @@ public class Extentor : MonoBehaviour
 {
     bool apagar, enMano;
     static bool encencido;
+    public AudioSource song;
    void Start()
     {
         apagar = false;
@@ -21,8 +22,7 @@ public class Extentor : MonoBehaviour
     {
         if (enMano && apagar && Input.GetKeyDown(KeyCode.Q))
         {
-
-            Debug.Log(transform.Find("Particulas"));
+            song.mute = false;
             encencido = true;
             transform.Find("Particulas").gameObject.SetActive(true);
             apagar = false;
@@ -31,6 +31,7 @@ public class Extentor : MonoBehaviour
 
         else if (enMano && !apagar && Input.GetKeyDown(KeyCode.Q))
         {
+            song.mute = true;
             transform.Find("Particulas").gameObject.SetActive(false);
             encencido = false;
             apagar = true;
@@ -41,15 +42,13 @@ public class Extentor : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player" && transform.parent != null)
-
         {
-
-            Debug.Log("entra");
             apagar = true;
             enMano = true;
         }
         else
         {
+            song.mute = true;
             enMano = false;
             transform.Find("Particulas").gameObject.SetActive(false);
         }

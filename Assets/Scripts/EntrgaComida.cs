@@ -6,6 +6,7 @@ public class EntrgaComida : MonoBehaviour
 {
     private GameObject comidaEntragada;
     bool entrega;
+    public AudioSource bien;
     void Start()
     {
         entrega = false;
@@ -15,6 +16,7 @@ public class EntrgaComida : MonoBehaviour
     {
         if (comidaEntragada != null && entrega)
         {
+            bien.Play();
             Destroy(comidaEntragada);
             DisplayReceipts.Entregado();
             Contador.addCont();

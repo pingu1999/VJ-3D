@@ -13,6 +13,8 @@ public class Timer : MonoBehaviour
     public GameObject clock;
     Color valor;
     string signo = "+";
+
+    public AudioSource ambiente;
     // Start is called before the first frame update
     void Awake()
     {
@@ -26,6 +28,11 @@ public class Timer : MonoBehaviour
     static public void setcount (int Cont)
     {
         count = Cont;
+    }
+
+    static public int get_count()
+    {
+        return count;
     }
 
     public void Update()
@@ -55,12 +62,10 @@ public class Timer : MonoBehaviour
         } 
         if (count >= 7)
         {
-            //next level o Wininng;
-            if (SceneManager.GetSceneByName("5_nivell") != null)
-            {
-                SelectorMenu.setmenu(2);
-                SceneManager.LoadScene(0);
-            }
+            ambiente.mute = true;
+            PopUPWIN.escene = SceneManager.GetActiveScene().name;
+            SelectorMenu.setmenu(3);
+            SceneManager.LoadScene(0);
         }
         else if (tiempo > 0)
         {
@@ -68,9 +73,20 @@ public class Timer : MonoBehaviour
             tiempoText = "" + tiempo.ToString("f0");
         }
         else if (tiempo <= 0) {
-            new WaitForSeconds(3);
-            SelectorMenu.setmenu(1);
-            SceneManager.LoadScene(0);
+            ambiente.mute = true;
+            if (count < 5)
+            {
+                Debug.Log("Over");
+                PopUPLOSE.escene = SceneManager.GetActiveScene().name;
+                SelectorMenu.setmenu(4);
+                SceneManager.LoadScene(0);
+            }
+            else
+            {
+                PopUPWIN.escene = SceneManager.GetActiveScene().name;
+                SelectorMenu.setmenu(3);
+                SceneManager.LoadScene(0);
+            }
 
         }
         timer.text = tiempoText;

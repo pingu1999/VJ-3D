@@ -7,6 +7,7 @@ public class MainMenu : MonoBehaviour
     public Canvas overmenu;
     public void PlayGame()
     {
+        Timer.setcount(0);
         SceneManager.LoadScene(1);
 
     }

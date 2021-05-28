@@ -20,6 +20,7 @@ public class Cocinar : MonoBehaviour
 
     [SerializeField] private GameObject Player;
     Vector3 pos;
+    public AudioSource song;
 
 
     static public void change_acabar()
@@ -104,6 +105,7 @@ public class Cocinar : MonoBehaviour
 
         if (extraer && Input.GetKeyDown(KeyCode.E))
         {
+            song.mute = true;
             Debug.Log("extraer");   
             extraer = false;
             transform.Find("ParticulasFuegoNormal").gameObject.SetActive(false);
@@ -192,6 +194,8 @@ public class Cocinar : MonoBehaviour
             other.transform.position = pos; // sets the position of the object to your hand position
             other.transform.rotation = rot;
             other.transform.parent = null;
+            song.mute = false;
+            song.Play();
         }
 
 

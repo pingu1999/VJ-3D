@@ -138,7 +138,6 @@ public class CombinacionesSarten : MonoBehaviour
 
         else if (novalid)
         {
-
             PlayerMoviment.Recoger();
             pos = myHands.transform.position;
             orientacio();
@@ -194,6 +193,7 @@ public class CombinacionesSarten : MonoBehaviour
 
         else if (other.gameObject.tag != "Untagged" && other.gameObject.tag != "Player" && other.transform.parent == null && other.gameObject.tag != "Plato" && other.gameObject.tag != "Sarten" && transform.parent == null)
         {
+            Debug.Log("novaid");
             novalid = true;
             Object = other.gameObject;
         }

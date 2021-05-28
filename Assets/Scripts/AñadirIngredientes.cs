@@ -70,6 +70,9 @@ public class AñadirIngredientes : MonoBehaviour
     {
         if (lechuga && gameObject.tag == "Plato")
         {
+            GetComponentInChildren<AudioSource>().gameObject.SetActive(true);
+            GetComponentInChildren<AudioSource>().gameObject.SetActive(false);
+            Debug.Log(GetComponentInChildren<AudioSource>().gameObject);
             Vector3 pos = gameObject.transform.position;
             Destroy(Object);
             Destroy(gameObject);
@@ -78,6 +81,8 @@ public class AñadirIngredientes : MonoBehaviour
             lechuga = false;
             _platoposcombinacion = Instantiate(prefabPlatoLechuga) as GameObject;
             _platoposcombinacion.transform.position = pos;
+            
+
         }
         else if (tomate && gameObject.tag == "PlatoLechuga")
         {
@@ -88,6 +93,7 @@ public class AñadirIngredientes : MonoBehaviour
             tomate = false;
             _platoposcombinacion = Instantiate(prefabEnsaladaTomate) as GameObject;
             _platoposcombinacion.transform.position = pos;
+          
         }
         else if (pizza && gameObject.tag == "Plato")
         {
@@ -99,6 +105,7 @@ public class AñadirIngredientes : MonoBehaviour
             pizza = false;
             _platoposcombinacion = Instantiate(prefabBasePizza) as GameObject;
             _platoposcombinacion.transform.position = pos;
+            
         }
         else if (tomate && gameObject.tag == "PlatoBasePizza")
         {
@@ -109,6 +116,7 @@ public class AñadirIngredientes : MonoBehaviour
             tomate = false;
             _platoposcombinacion = Instantiate(prefabBasePizzaTomate) as GameObject;
             _platoposcombinacion.transform.position = pos;
+            
         }
         else if (queso && gameObject.tag == "PlatoBasePizzaTomate")
         {
@@ -119,6 +127,7 @@ public class AñadirIngredientes : MonoBehaviour
             queso = false;
             _platoposcombinacion = Instantiate(prefabBasePizzaTomateQueso) as GameObject;
             _platoposcombinacion.transform.position = pos;
+           
         }
         else if (pan && gameObject.tag == "Plato")
         {
@@ -130,6 +139,7 @@ public class AñadirIngredientes : MonoBehaviour
             pan = false;
             _platoposcombinacion = Instantiate(prefabPan) as GameObject;
             _platoposcombinacion.transform.position = pos;
+           
         }
         else if (lechuga && gameObject.tag == "PlatoPan")
         {
@@ -141,6 +151,7 @@ public class AñadirIngredientes : MonoBehaviour
             lechuga = false;
             _platoposcombinacion = Instantiate(prefabPanLechuga) as GameObject;
             _platoposcombinacion.transform.position = pos;
+            
         }
         else if (tomate && gameObject.tag == "PlatoPanLechuga")
         {
@@ -152,6 +163,7 @@ public class AñadirIngredientes : MonoBehaviour
             tomate = false;
             _platoposcombinacion = Instantiate(prefabPanLechugaTomate) as GameObject;
             _platoposcombinacion.transform.position = pos;
+            
         }
         else if (carne && gameObject.tag == "PlatoPanLechugaTomate")
         {
@@ -175,6 +187,7 @@ public class AñadirIngredientes : MonoBehaviour
             sarten.transform.parent = myHands.transform; 
             PlayerPick.sethasItem(true);
             PlayerPick.sethObjectIwantToPickUp(sarten);
+            
         }
         else if (carne && gameObject.tag == "PlatoPan")
         {
@@ -198,6 +211,7 @@ public class AñadirIngredientes : MonoBehaviour
             sarten.transform.parent = myHands.transform;
             PlayerPick.sethasItem(true);
             PlayerPick.sethObjectIwantToPickUp(sarten);
+            
         }
         else if (paella && gameObject.tag == "Plato")
         {
@@ -209,12 +223,13 @@ public class AñadirIngredientes : MonoBehaviour
             paella = false;
             _platoposcombinacion = Instantiate(prefabPaella) as GameObject;
             _platoposcombinacion.transform.position = pos;
+            
         }
 
 
         else if (novalid)
         {
-
+            //song1.gameObject.SetActive(true);
             PlayerMoviment.Recoger();
             pos = myHands.transform.position;
             orientacio();
@@ -238,7 +253,7 @@ public class AñadirIngredientes : MonoBehaviour
       {
             lechuga = true;
             Object = other.gameObject;
-      }
+        }
       else if (other.gameObject.tag == "TomateCortado" && other.transform.parent == null && transform.parent == null)
        {
             tomate = true;
@@ -277,6 +292,7 @@ public class AñadirIngredientes : MonoBehaviour
 
       else if (other.gameObject.tag != "Untagged"  && other.gameObject.tag != "Player" && other.transform.parent == null && other.gameObject.tag != "Plato" && other.gameObject.tag != "Sarten" && !PlayerPick.gethasItem() && transform.parent == null)
         {
+            Debug.Log("novaid");
             novalid = true;
             Object = other.gameObject;
         }

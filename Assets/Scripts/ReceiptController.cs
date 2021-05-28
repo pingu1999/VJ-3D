@@ -14,6 +14,7 @@ public class ReceiptController : MonoBehaviour
     public GameObject recipe_6;
     public GameObject recipe_7;
     public GameObject layout;
+    public AudioSource song;
 
 
 
@@ -33,7 +34,7 @@ public class ReceiptController : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "1_nivell")
         {
-
+            song.mute = false;
             layout.gameObject.SetActive(true);
             GameObject[] recipe = new GameObject[] { recipe_1, recipe_2 };
             recipes.Clear();
@@ -46,6 +47,7 @@ public class ReceiptController : MonoBehaviour
 
         else if (SceneManager.GetActiveScene().name == "2_nivell")
         {
+            song.mute = false;
             layout.gameObject.SetActive(true); ;
             GameObject[] recipe = new GameObject[] { recipe_1, recipe_2, recipe_3, recipe_4 };
             recipes.Clear();
@@ -58,6 +60,7 @@ public class ReceiptController : MonoBehaviour
 
         else if (SceneManager.GetActiveScene().name == "3_nivell")
         {
+            song.mute = false;
             layout.gameObject.SetActive(true);
             GameObject[] recipe = new GameObject[] { recipe_1, recipe_2, recipe_5, recipe_6 };
             recipes.Clear();
@@ -70,6 +73,7 @@ public class ReceiptController : MonoBehaviour
 
         else if (SceneManager.GetActiveScene().name == "4_nivell")
         {
+            song.mute = false;
             layout.gameObject.SetActive(true);
             GameObject[] recipe = new GameObject[] { recipe_1, recipe_2, recipe_7 };
             recipes.Clear();
@@ -82,6 +86,7 @@ public class ReceiptController : MonoBehaviour
 
         else if (SceneManager.GetActiveScene().name == "5_nivell")
         {
+            song.mute = false;
             layout.gameObject.SetActive(true);
             GameObject[] recipe = new GameObject[] { recipe_1, recipe_2, recipe_3, recipe_4, recipe_5, recipe_6 };
             recipes.Clear();

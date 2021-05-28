@@ -154,8 +154,6 @@ public class DisplayReceipts : MonoBehaviour
             Receipt2.GetComponentsInChildren<Image>()[0].color = Receipt3.GetComponentsInChildren<Image>()[0].color;
             Receipt3.GetComponentsInChildren<Image>()[0].color = new Color(1, 0, 0, 0);
             Receipt3.GetComponentsInChildren<Image>()[3].color = new Color(1, 1, 1, 0);
-            //Barra3.gameObject.SetActive(false);
-            Debug.Log(Barra3.value);
             i = j;
             tmp1 = tmp2;
             j = k;

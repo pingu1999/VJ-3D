@@ -12,6 +12,7 @@ public class MesaCortar : MonoBehaviour
     public GameObject cuchillo;
     public GameObject player;
     GameObject sustituto;
+    public GameObject song;
 
     static bool acabar;
 
@@ -95,6 +96,7 @@ public class MesaCortar : MonoBehaviour
     public IEnumerator accion(int seconds)
     {
         PlayerMoviment.Recoger();
+        PlayerMoviment.setblock(true);
         if (!acabar)
         {
             yield return new WaitForSeconds((float)seconds);  // espera 3 segons
@@ -130,8 +132,8 @@ public class MesaCortar : MonoBehaviour
 
         ready = true;
         ObjectIwantToPickUp = null;
-        
 
+        song.SetActive(false);
         PlayerMoviment.setblock(false);
         
     }
@@ -189,6 +191,8 @@ public class MesaCortar : MonoBehaviour
         if (ready == true && posicionar == true && ObjectIwantToPickUp != null) // if you enter thecollider of the objecct
         {
             //Debug.Log("cojo cuchilo y dejo lo que tengo en la mano");
+            
+            song.SetActive(true);
             ready = false;
             pos = this.transform.position;
             pos.y = 23.5f;
@@ -214,7 +218,6 @@ public class MesaCortar : MonoBehaviour
             cuchillo.transform.position = pos;
            
 
-            PlayerMoviment.setblock(true);
             StartCoroutine(accion(3));
 
         }

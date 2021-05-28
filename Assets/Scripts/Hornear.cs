@@ -19,6 +19,7 @@ public class Hornear : MonoBehaviour
     [SerializeField] private GameObject prefabSartenQuemada;
 
     [SerializeField] private GameObject Player;
+    public AudioSource song;
     Vector3 pos;
     void Start()
     {
@@ -83,6 +84,7 @@ public class Hornear : MonoBehaviour
 
         if (product && extraer && Input.GetKeyUp(KeyCode.E))
         {
+            song.mute = true;
             Debug.Log("recoger");
             product = false;
             tiempo = 0;
@@ -213,6 +215,7 @@ public class Hornear : MonoBehaviour
             product = true;
             input = other.name;
             tiempo = 0f;
+            song.mute = false;
         }
 
 

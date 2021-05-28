@@ -54,9 +54,10 @@ public class PlayerMoviment : MonoBehaviour
        
         if (!block)
         {
-            gir_personatge(moveZ, moveX);
             moveDirection = new Vector3(moveX, 0, moveZ);
+            gir_personatge(moveZ, moveX);
         }
+
         if (moveDirection == Vector3.zero)
         {
             Idle();
@@ -99,32 +100,32 @@ public class PlayerMoviment : MonoBehaviour
     private void gir_personatge(float moveZ, float moveX)
     {
         //Quaternion rotation;
-        if (moveZ == 0 && moveX == 0)
+        if (moveZ == 0 && moveX == 0 && !block)
         {
            //idle
            //no hay que rotar
         }
 
 
-        else if (moveZ > 0 && moveX == 0)
+        else if (moveZ > 0 && moveX == 0 && !block)
         {
             //delante
             transform.rotation = Quaternion.Euler(0, 0, 0);
             dir = "north";
         }
-        else if (moveZ < 0 && moveX == 0)
+        else if (moveZ < 0 && moveX == 0 && !block)
         {
             //detras
             transform.rotation = Quaternion.Euler(0, 180, 0);
             dir = "south";
         }
-        else if (moveZ == 0 && moveX > 0)
+        else if (moveZ == 0 && moveX > 0 && !block)
         {
             //derecha
             transform.rotation = Quaternion.Euler(0, 90, 0);
             dir = "est";
         }
-        else if (moveZ == 0 && moveX < 0)
+        else if (moveZ == 0 && moveX < 0 && !block)
         {
             //izquierda
             transform.rotation = Quaternion.Euler(0, -90, 0);
@@ -133,22 +134,22 @@ public class PlayerMoviment : MonoBehaviour
 
 
 
-        else if (moveZ > 0 && moveX > 0)
+        else if (moveZ > 0 && moveX > 0 && !block)
         {
             transform.rotation = Quaternion.Euler(0, 45, 0);
             dir = "north-west";
         }
-        else if (moveZ > 0 && moveX < 0)
+        else if (moveZ > 0 && moveX < 0 && !block)
         {
             transform.rotation = Quaternion.Euler(0, -45, 0);
             dir = "north-est";
         }
-        else if (moveZ < 0 && moveX > 0)
+        else if (moveZ < 0 && moveX > 0 && !block)
         {
             transform.rotation = Quaternion.Euler(0, 135, 0);
             dir = "south-west";
         }
-        else
+        else if (!block)
         {
             transform.rotation = Quaternion.Euler(0, 225, 0);
             dir = "south-est";

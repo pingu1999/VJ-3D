@@ -6,9 +6,11 @@ public class ResaltarObjetivo : MonoBehaviour
 {
 
     List<GameObject> Mesas = new List<GameObject>();
+    //public AudioSource song;
     void Start()
     {
         DisplayReceipts.start();
+        //song.mute = false;
     }
 
   

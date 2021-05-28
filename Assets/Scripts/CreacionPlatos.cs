@@ -10,6 +10,7 @@ public class CreacionPlatos : MonoBehaviour
     private GameObject _plato;
     GameObject myHands;
     Vector3 pos;
+    public AudioSource song;
 
 
 
@@ -73,6 +74,7 @@ public class CreacionPlatos : MonoBehaviour
     {
         if (contact && Player != null && plat && Input.GetKeyUp(KeyCode.E))
         {
+            song.Play();
             myHands = Player.transform.Find("mixamorig:Hips").Find("mixamorig:Spine").gameObject;
             _plato = Instantiate(prefabPlato) as GameObject;
             
@@ -86,6 +88,7 @@ public class CreacionPlatos : MonoBehaviour
             PlayerPick.sethasItem(true);
             PlayerPick.sethObjectIwantToPickUp(_plato);
             plat = false;
+            
         }
     }
 

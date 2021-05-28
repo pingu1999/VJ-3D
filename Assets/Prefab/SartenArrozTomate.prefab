@@ -170,6 +170,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdab67017798d294f97a95f13644da46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  song1: {fileID: 6647062821150769748, guid: de36166c2ad31e64cb30d7a6e6dca2ee, type: 3}
+  song2: {fileID: 8596779353320457496, guid: 01d066b381737624c82c9513ca6646d8, type: 3}
   prefabSarten: {fileID: 7652902168299456506, guid: 249837c9e40d01a488a4734a8f1ab9f9, type: 3}
   prefabSartenArroz: {fileID: 1587391858290604479, guid: 39fa3c41d9695c541b4614ba39d3661c, type: 3}
   prefabSartenArrozTomate: {fileID: 5016894284987279776}
