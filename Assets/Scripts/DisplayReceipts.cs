@@ -389,7 +389,7 @@ public class DisplayReceipts : MonoBehaviour
                 PlayerPick.sethasItem(true);
                 PlayerPick.sethObjectIwantToPickUp(next_receta);
             }
-            else if (Receipt1.GetComponentsInChildren<Image>()[3].sprite.name == "PizzaSimple")
+            else if (Receipt1.GetComponentsInChildren<Image>()[3].sprite.name == "PizzaCompleta")
             {
                 next_receta = Instantiate(prefabPizzaSimple) as GameObject;
                 PlayerMoviment.Recoger();
@@ -402,7 +402,7 @@ public class DisplayReceipts : MonoBehaviour
                 PlayerPick.sethasItem(true);
                 PlayerPick.sethObjectIwantToPickUp(next_receta);
             }
-            else if (Receipt1.GetComponentsInChildren<Image>()[3].sprite.name == "PizzaQueso")
+            else if (Receipt1.GetComponentsInChildren<Image>()[3].sprite.name == "PizzaSimple")
             {
                 next_receta = Instantiate(prefabPizzaQueso) as GameObject;
                 PlayerMoviment.Recoger();

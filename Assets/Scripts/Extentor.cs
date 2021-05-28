@@ -46,7 +46,7 @@ public class Extentor : MonoBehaviour
             apagar = true;
             enMano = true;
         }
-        else
+        else if (other.gameObject.tag == "Player")
         {
             song.mute = true;
             enMano = false;

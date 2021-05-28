@@ -77,7 +77,8 @@ public class Papelera : MonoBehaviour
                 Object.GetComponent<Rigidbody>().isKinematic = true;
                 Object.transform.parent = myHands.transform;
                 Object.transform.position = pos;
-                Debug.Log(Object.transform.parent);
+                PlayerPick.sethasItem(true);
+                PlayerPick.sethObjectIwantToPickUp(Object);
             }
             else
             {

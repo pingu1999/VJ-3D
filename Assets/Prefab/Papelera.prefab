@@ -47,7 +47,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 18, y: 18, z: 18}
-  m_Center: {x: 1.5, y: 5.5, z: -0.5}
+  m_Center: {x: 0, y: 5.5, z: 0}
 --- !u!114 &7538255006858698160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,6 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabSarten: {fileID: 7652902168299456506, guid: 249837c9e40d01a488a4734a8f1ab9f9, type: 3}
+  Player: {fileID: 0}
 --- !u!65 &747836238479415001
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -91,7 +92,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 18, y: 18, z: 18}
-  m_Center: {x: 1.5, y: 5.5, z: -0.5}
+  m_Center: {x: 0, y: 5.5, z: 0}
 --- !u!1 &5920640796103301331
 GameObject:
   m_ObjectHideFlags: 0

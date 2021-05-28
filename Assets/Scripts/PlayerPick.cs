@@ -85,7 +85,6 @@ public class PlayerPick : MonoBehaviour
 
         if (canpickup == true && Input.GetKeyDown(KeyCode.E) && hasItem == false && ObjectIwantToPickUp != null)  // can be e or any key
         {
-            Debug.Log("recoger");
             PlayerMoviment.Recoger();
             pos = myHands.transform.position;
             orientacio();
@@ -112,7 +111,7 @@ public class PlayerPick : MonoBehaviour
     private void OnTriggerEnter(Collider other) // to see when the player enters the collider
     {
         
-         if (other.gameObject.tag != "Untagged" && !hasItem && other.gameObject.tag != "Cuchillo" && other.gameObject.tag != "Player") //on the object you want to pick up set the tag to be anything, in this case "object"
+         if (other.gameObject.tag != "Untagged" && other.gameObject.tag != "Object" && !hasItem && other.gameObject.tag != "Cuchillo" && other.gameObject.tag != "Player" && other.transform.parent == null) //on the object you want to pick up set the tag to be anything, in this case "object"
          {
             canpickup = true;  //set the pick up bool to true
             ObjectIwantToPickUp = other.gameObject; //set the gameobject you collided with to one you can reference

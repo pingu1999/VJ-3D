@@ -16,7 +16,8 @@ public class PlayerMoviment : MonoBehaviour
     private Vector3 moveDirection;
     private Vector3 velocity;
     static bool block;
-    
+    static public bool quieto;
+
     private CharacterController controller;
     private static Animator anim;
 
@@ -27,6 +28,7 @@ public class PlayerMoviment : MonoBehaviour
         anim = GetComponent<Animator>();
         block = false;
         anim.SetBool("recoger", false);
+        quieto = true;
 
     }
     public static string Direccio()
@@ -60,13 +62,14 @@ public class PlayerMoviment : MonoBehaviour
 
         if (moveDirection == Vector3.zero)
         {
+            quieto = true;
             Idle();
-            player.transform.Find("ParticulasPlayer").gameObject.SetActive(false);
+            player.transform.Find("ParticulasPlayer").gameObject.SetActive(false);quieto = true;
         }
         
         else if (moveDirection != Vector3.zero)
         {
-            
+            quieto = false;
             walk();
             player.transform.Find("ParticulasPlayer").gameObject.SetActive(true);
         }

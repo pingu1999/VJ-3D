@@ -60,7 +60,6 @@ public class CombinacionesSarten : MonoBehaviour
             pos.z -= 8.5f;
             pos.y += 6f;
         }
-        else Debug.Log("Tonto");
     }
     void Start()
     {
@@ -191,9 +190,8 @@ public class CombinacionesSarten : MonoBehaviour
 
         }
 
-        else if (other.gameObject.tag != "Untagged" && other.gameObject.tag != "Player" && other.transform.parent == null && other.gameObject.tag != "Plato" && other.gameObject.tag != "Sarten" && transform.parent == null)
+        else if (other.gameObject.tag != "Untagged" && other.gameObject.tag != "Objects" && other.gameObject.tag != "Player" && other.transform.parent == null && other.gameObject.tag != "Plato" && other.gameObject.tag != "Sarten" && transform.parent == null)
         {
-            Debug.Log("novaid");
             novalid = true;
             Object = other.gameObject;
         }

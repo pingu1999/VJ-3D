@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Cocinar : MonoBehaviour
 {
-    GameObject producte, myHands;
+    GameObject producte, myHands, menjar;
     static string estat;
     private float tiempo, tmp;
     private bool product, extraer, apagar;
@@ -58,23 +58,22 @@ public class Cocinar : MonoBehaviour
         }
         if ((acabar && product) || (estat == "cocinando" && product && tiempo > 5.0f))
         {
-            
             Vector3 posicion = producte.transform.position;
             Quaternion rotation = producte.transform.rotation;
             Destroy(producte);
             if (input == "SartenCarne")
             {
-                producte = Instantiate(prefabCarneCocinada) as GameObject;
+                menjar = Instantiate(prefabCarneCocinada) as GameObject;
             }
             else if (input == "SartenArrozTomateCarneCebollaGambas")
             {
-                producte = Instantiate(prefabPaella) as GameObject;
+                menjar = Instantiate(prefabPaella) as GameObject;
             }
-            
-            producte.GetComponent<Rigidbody>().isKinematic = true;   
-            producte.transform.position = posicion; 
-            producte.transform.rotation = rotation;
-            producte.transform.parent = null;
+            menjar.transform.parent = transform;
+            menjar.GetComponent<Rigidbody>().isKinematic = true;
+            menjar.transform.position = posicion;
+            menjar.transform.rotation = rotation;
+           
 
             transform.Find("ParticulasFuegoNormal").gameObject.SetActive(false);
             transform.Find("ParticulasFuegoCasi").gameObject.SetActive(true);
@@ -82,17 +81,18 @@ public class Cocinar : MonoBehaviour
         }
         if (!acabar && estat == "cocinado" && product && tiempo > 7.5f && !godmode)
         {
-            Vector3 posicion = producte.transform.position;
-            Quaternion rotation = producte.transform.rotation;
-            Destroy(producte);
+            Vector3 posicion = menjar.transform.position;
+            Quaternion rotation = menjar.transform.rotation;
+            Destroy(menjar);
 
-            producte = Instantiate(prefabSartenQuemada);
+            menjar = Instantiate(prefabSartenQuemada);
 
-            producte.GetComponent<Rigidbody>().isKinematic = true;
-            producte.transform.position = posicion;
-            producte.transform.rotation = rotation;
-            producte.transform.parent = null;
 
+            menjar.transform.parent = transform;
+            menjar.GetComponent<Rigidbody>().isKinematic = true;
+            menjar.transform.position = posicion;
+            menjar.transform.rotation = rotation;
+            
 
             transform.Find("ParticulasFuegoCasi").gameObject.SetActive(false);
             transform.Find("ParticulasFuegoQuemado").gameObject.SetActive(true);
@@ -100,22 +100,26 @@ public class Cocinar : MonoBehaviour
         }
         if (!acabar && estat == "quemado" && product && apagar && Extentor.get_encendido())
         {
-            transform.Find("ParticulasFuegoQuemado").gameObject.SetActive(false);
-        }
-
-        if (extraer && Input.GetKeyDown(KeyCode.E))
-        {
             song.mute = true;
-            Debug.Log("extraer");   
-            extraer = false;
             transform.Find("ParticulasFuegoNormal").gameObject.SetActive(false);
             transform.Find("ParticulasFuegoQuemado").gameObject.SetActive(false);
+            transform.Find("ParticulasFuegoCasi").gameObject.SetActive(false);
+            estat = "apagat_qu";
+            menjar.transform.parent = null;
+        }
 
+        if (extraer && Input.GetKeyDown(KeyCode.E) && estat != "quemado")
+        {
+            song.mute = true;
+            transform.Find("ParticulasFuegoNormal").gameObject.SetActive(false);
+            transform.Find("ParticulasFuegoQuemado").gameObject.SetActive(false);
+            transform.Find("ParticulasFuegoCasi").gameObject.SetActive(false);
+           
             product = false;
             estat = "apagat";
             tiempo = 0;
             extraer = false;
-            
+                      
 
         }
 
@@ -182,7 +186,7 @@ public class Cocinar : MonoBehaviour
         {
             producte = other.gameObject;
             product = true;
-            input = other.name;
+            input = other.tag;
 
             //colocacion en el centro del fuego
             pos = this.transform.position;
@@ -207,7 +211,6 @@ public class Cocinar : MonoBehaviour
         if (other.gameObject.tag == "Extintor")
         {
             apagar = true;
-            Debug.Log("recoger");
         }
 
     }

@@ -13,13 +13,13 @@ public class SelectorMenu : MonoBehaviour
     public AudioSource win;
     public AudioSource WinAll;
     public AudioSource lose;
+    public AudioSource song;
 
     static bool first = true;
     // Start is called before the first frame update
     void Start()
     {
-        
-     
+        song.mute = false;
     }
 
 
@@ -35,6 +35,7 @@ public class SelectorMenu : MonoBehaviour
     {
         if (menu == 0)
         {
+            song.mute = false;
             mainmenu.SetActive(true);
             overmenu.SetActive(false);
             winmenu.SetActive(false);
@@ -43,14 +44,16 @@ public class SelectorMenu : MonoBehaviour
         }
         else if (menu == 1)
         {
-            mainmenu.SetActive(true);
-            overmenu.SetActive(true);
+            song.mute = false;
+            mainmenu.SetActive(false);
+            overmenu.SetActive(false);
             winmenu.SetActive(false);
             win1.SetActive(false);
             lose1.SetActive(false);
         }
         else if (menu == 2)
         {
+            song.mute = true;
             if (first)
             {
                 WinAll.Play();
@@ -64,6 +67,7 @@ public class SelectorMenu : MonoBehaviour
         }
         else if (menu == 3)
         {
+            song.mute = true;
             if (first)
             {
                 win.Play();
@@ -77,6 +81,7 @@ public class SelectorMenu : MonoBehaviour
         }
         else if (menu == 4)
         {
+            song.mute = true;
             if (first)
             {
                 lose.Play();
@@ -90,7 +95,7 @@ public class SelectorMenu : MonoBehaviour
         }
         else
         {
-            
+            song.mute = true;
         }
     }
 }

@@ -80,9 +80,10 @@ public class Hornear : MonoBehaviour
             transform.Find("ParticulasHornoQuemado").gameObject.SetActive(false);
             transform.Find("ParticulasHornoCocinado").gameObject.SetActive(false);
             transform.Find("ParticulasHornoCasi").gameObject.SetActive(false);
+            estat = "apagat_qu";
         }
 
-        if (product && extraer && Input.GetKeyUp(KeyCode.E))
+        if (product && extraer && Input.GetKeyUp(KeyCode.E) && estat != "quemado")
         {
             song.mute = true;
             Debug.Log("recoger");
@@ -99,8 +100,9 @@ public class Hornear : MonoBehaviour
                     cocinado = Instantiate(prefabPizzaSimple) as GameObject;
                 }
 
-                else if (estat == "quemado")
+                else if (estat == "apagat_qu")
                 {
+                    Debug.Log("Quemado");
                     cocinado = Instantiate(prefabSartenQuemada) as GameObject;
                 }
                 else
@@ -126,7 +128,7 @@ public class Hornear : MonoBehaviour
                 {
                     cocinado = Instantiate(prefabPizzaCompleta) as GameObject;
                 }
-                else if (estat == "quemado")
+                else if (estat == "apagat_qu")
                 {
                     cocinado = Instantiate(prefabSartenQuemada) as GameObject;
                 }

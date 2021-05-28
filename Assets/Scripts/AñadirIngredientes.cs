@@ -70,9 +70,6 @@ public class AñadirIngredientes : MonoBehaviour
     {
         if (lechuga && gameObject.tag == "Plato")
         {
-            GetComponentInChildren<AudioSource>().gameObject.SetActive(true);
-            GetComponentInChildren<AudioSource>().gameObject.SetActive(false);
-            Debug.Log(GetComponentInChildren<AudioSource>().gameObject);
             Vector3 pos = gameObject.transform.position;
             Destroy(Object);
             Destroy(gameObject);
@@ -290,7 +287,7 @@ public class AñadirIngredientes : MonoBehaviour
 
 
 
-      else if (other.gameObject.tag != "Untagged"  && other.gameObject.tag != "Player" && other.transform.parent == null && other.gameObject.tag != "Plato" && other.gameObject.tag != "Sarten" && !PlayerPick.gethasItem() && transform.parent == null)
+      else if (other.gameObject.tag != "Untagged" && other.gameObject.tag != "Objects" && other.gameObject.tag != "Player" && other.transform.parent == null && other.gameObject.tag != "Plato" && other.gameObject.tag != "Sarten" && !PlayerPick.gethasItem() && transform.parent == null)
         {
             Debug.Log("novaid");
             novalid = true;

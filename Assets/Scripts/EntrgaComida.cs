@@ -27,7 +27,7 @@ public class EntrgaComida : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == DisplayReceipts.get_nameReceta() && other.gameObject.transform.parent == null)
+        if ((other.gameObject.tag == DisplayReceipts.get_nameReceta() || (other.gameObject.tag == "PizzaSimple" && DisplayReceipts.get_nameReceta() == "PizzaQueso") || (other.gameObject.tag == "PizzaQueso" && DisplayReceipts.get_nameReceta() == "PizzaSimple")) && other.gameObject.transform.parent == null)
         {
             comidaEntragada = other.gameObject;
             entrega = true;

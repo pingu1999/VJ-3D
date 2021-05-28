@@ -188,7 +188,7 @@ public class MesaCortar : MonoBehaviour
     void Update()
     {
         //Debug.Log(cuchillo.transform.rotation);
-        if (ready == true && posicionar == true && ObjectIwantToPickUp != null) // if you enter thecollider of the objecct
+        if (ready == true && posicionar == true && ObjectIwantToPickUp != null && PlayerMoviment.quieto) // if you enter thecollider of the objecct
         {
             //Debug.Log("cojo cuchilo y dejo lo que tengo en la mano");
             
